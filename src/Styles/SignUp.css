@@ -3,18 +3,22 @@
     width: 700px;
     display: flex;
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
 }
 
 .fields{
     display: grid;
     width: 50%;
     padding: 1rem 2rem;
+    border-top: 1px solid rgb(224, 224, 224);
 }
 
 .image{
     width: 60%;
     background-image: linear-gradient(to right, rgb(13, 119, 87) , rgb(7, 189, 135));
     box-shadow: 10px 5px 15px -2px #a2a2a2;
+    border-radius: 20px;
 }
 
 .signUpText{
