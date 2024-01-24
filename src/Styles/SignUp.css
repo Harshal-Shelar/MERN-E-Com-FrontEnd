@@ -7,6 +7,8 @@
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
+    min-width: 700px;
+    width: 700px;
 }
 
 .fields{

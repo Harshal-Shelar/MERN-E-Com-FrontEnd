@@ -1,6 +1,4 @@
 .loginMain {
-    /* margin: 3rem auto;
-    width: 700px; */
     display: flex;
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
     border-top-left-radius: 20px;
@@ -9,6 +7,8 @@
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
+    min-width: 700px;
+    width: 700px;
 }
 
 .image {

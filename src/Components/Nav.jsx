@@ -16,14 +16,18 @@ const Nav = () => {
   return (
     <div>
       <ul className='nav-ul'>
-        <li className='nav-li'><Link to="/">Products</Link></li>
-        <li className='nav-li'><Link to="/add">Add Products</Link></li>
-        <li className='nav-li'><Link to="/profile">Profile</Link></li>
-        <li className='nav-li'>
-          {
-            auth ? <Link to='/signUp' onClick={logout}>Log out</Link> : <Link to="/signUp">SignUp</Link>
-          }
-        </li>
+        <div className="all-li">
+          <li className='nav-li'><Link to="/">Products</Link></li>
+          <li className='nav-li'><Link to="/add">Add Products</Link></li>
+          <li className='nav-li'><Link to="/profile">Profile</Link></li>
+        </div>
+        <div className="loginLogout">
+          <li className='nav-li'>
+            {
+              auth ? <Link to='/signUp' onClick={logout}>Log out</Link> : <Link to="/signUp">SignUp</Link>
+            }
+          </li>
+        </div>
       </ul>
     </div>
   )
