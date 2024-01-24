@@ -2,8 +2,10 @@
     text-align: center;
     display: flex;
     margin: 0 auto;
-    width: 97%;
-    background-color: skyblue;
+    width: 100%;
+    background-color: transparent;
+    padding-inline-start: 0;
+    box-shadow: 7px 7px 15px 1px #d8d8d8;
 }
 .nav-li{
     list-style-type: none;

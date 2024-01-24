@@ -4,6 +4,7 @@ import Products from './Components/Products.jsx';
 import AddProducts from './Components/AddProducts.jsx';
 import Profile from './Components/Profile.jsx';
 import Footer from './Components/Footer.jsx';
+import SignUp from './Components/SignUp.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/' element={<Products />} />
           <Route path='/add' element={<AddProducts />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/signUp' element={<SignUp />} />
         </Routes>
       </BrowserRouter>
       <Footer />
