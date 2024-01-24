@@ -1,0 +1,9 @@
+.footerText{
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    background-color: skyblue;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0;
+}
