@@ -5,6 +5,7 @@ import AddProducts from './Components/AddProducts.jsx';
 import Profile from './Components/Profile.jsx';
 import Footer from './Components/Footer.jsx';
 import SignUp from './Components/SignUp.jsx';
+import './index.css';
 
 function App() {
   return (
