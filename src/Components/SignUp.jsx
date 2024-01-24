@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../Styles/SignUp.css';
+import regImg from '../Assets/Images/register.png'
 
 const SignUp = () => {
     const [name, setName] = useState("");
@@ -8,6 +9,9 @@ const SignUp = () => {
 
     return (
         <div className='registerForm'>
+            <div className="image">
+                    <img className='innerImage' src={regImg} alt="" />
+            </div>
             <div className="fields">
                 <h2 className='signUpHeading'>Register</h2>
                 <label htmlFor="">Name</label>

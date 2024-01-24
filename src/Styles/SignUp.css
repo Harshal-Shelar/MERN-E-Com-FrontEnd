@@ -1,44 +1,58 @@
 .registerForm{
     margin: 5rem auto;
-    width: 500px;
-    border-radius: 15px;
-    padding: 1rem 3rem;
-    background-color: rgb(0, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    box-shadow: 7px 7px 15px -1px rgb(43, 43, 43);
+    width: 700px;
+    display: flex;
+    box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
 }
 
 .fields{
     display: grid;
+    width: 50%;
+    padding: 1rem 2rem;
 }
 
+.image{
+    width: 60%;
+    background-color: rgb(7, 189, 135);
+}
+
+.signUpText{
+    margin-top: 5rem;
+    text-align: center;
+    color: white;
+}
+.innerImage{
+    top: 50%;
+    position: relative;
+    transform: translate(-0%, -50%);
+}
 .signUpHeading{
     text-align: center;
     margin: 10px 0;
-    text-shadow: 0px 2px 5px rgb(0, 119, 255);
-    color: white;
+    color: rgb(220,19,88);
     font-size: 35px;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
+    font-weight: 600;
 }
 label{
     margin: 1.2rem 0 0.3rem;
     font-weight: 500;
-    color: white;
+    color: black;
     letter-spacing: 1px;
 }
 input{
-    height: 1.8rem;
+    height: 1.9rem;
     padding-left: 0.5rem;
     border-radius: 5px;
-    border: 2px solid rgb(255, 255, 255);
+    border: 1px solid rgb(163, 163, 163);
     outline: none;
 }
 
 button{
     margin: 2rem 0 1rem;
     padding: 0.5rem 0;
-    background-color: rgb(1, 45, 100);
-    border: 1px solid rgb(1, 45, 100);
+    background-color: rgb(7, 189, 135);
+    border: 1px solid rgb(7, 189, 135);
     font-weight: 600;
     color: white;
     letter-spacing: 2px;
@@ -47,8 +61,8 @@ button{
     cursor: pointer;
 }
 button:hover{
-    background-color: black;
-    border: 1px solid black;
-    box-shadow: 0px 0px 15px 5px rgb(1, 45, 100);
+    background-color: rgb(13, 119, 87);
+    border: 1px solid rgb(13, 119, 87);
     transition: 0.7s;
+    box-shadow: 0px 0px 15px 3px rgb(7, 189, 135);
 }
