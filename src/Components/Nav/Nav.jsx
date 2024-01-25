@@ -24,7 +24,7 @@ const Nav = () => {
             </div>
             <div className='loginLogout'>
               <li className='nav-li'><Link to="/profile"> <i className="fa fa-user-circle-o"></i> {JSON.parse(auth).name}</Link></li>
-              <li><Link to='/signUp' onClick={logout}>Log out</Link></li>
+              <li><Link to='/signUp' onClick={logout}> <i className='fa fa-power-off'></i> Log out</Link></li>
             </div>
           </ul>
           :

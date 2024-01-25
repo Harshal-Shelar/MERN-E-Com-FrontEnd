@@ -25,7 +25,7 @@
     display: flex;
     list-style: none;
     padding-inline-start: 10px;
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(185, 185, 185);
     align-items: center;
     padding-top: 1rem;
     margin-block-start: 0em;
@@ -39,6 +39,7 @@
     font-size: 18px;
     padding-bottom: 1rem;
     font-weight: bold;
+    letter-spacing: 1px;
 }
 .srCol{
     width: 70px !important;
@@ -62,6 +63,7 @@
     text-wrap: nowrap;
     min-width: 150px;
     width: fit-content;
+    letter-spacing: 0.5px;
 }
 .btns{
     display: flex;
