@@ -1,0 +1,36 @@
+.productList{
+    margin: 3rem auto;
+    width: fit-content;
+}
+.productListHeading{
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.headingUl{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    padding-inline-start: 0px;
+}
+.headingLi{
+    display: grid;
+    width: fit-content;
+    padding: 5px;
+    text-align: left;
+    font-weight: 600;
+}
+.dataUl{
+    margin: 0;
+    border: 1px solid gray;
+    padding-inline-start: 0px;
+}
+
+.dataLi{
+    display: inline-block;
+    width: 150px;
+    padding: 5px 5px 5px 8px;
+}
