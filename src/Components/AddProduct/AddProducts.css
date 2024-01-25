@@ -1,82 +1,59 @@
-.registerForm{
+.addFormMain{
     top: 50%;
     left: 50%;
-    position: absolute;
     transform: translate(-50%, -50%);
-    display: flex;
-    box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
+    position: absolute;
     min-width: 700px;
     width: 700px;
+    min-height: 500px;
+    height: 500px;
+    display: flex;
 }
-
-.fields{
+.mainForm{
     display: grid;
     width: 50%;
-    padding: 1rem 2rem;
+    padding: 2rem;
+    align-items: center;
     border-top: 1px solid rgb(224, 224, 224);
+    box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
 }
-
 .image{
     width: 50%;
-    background-image: linear-gradient(to right, rgb(13, 119, 87) , rgb(7, 189, 135));
+    background-image: linear-gradient(to right, rgb(13, 119, 87), rgb(7, 189, 135));
     box-shadow: 10px 5px 15px -2px #a2a2a2;
     border-radius: 20px;
 }
-.pTag{
-    font-size: 15px;
-    text-align: center;
-}
-
-.loginSpan{
-    cursor: pointer;
-    color: rgb(35,52,137);
-    font-weight: 600;
-}
-.loginSpan a{
-    text-decoration: none;
-    color: rgb(35,52,137);
-}
-.loginSpan:hover{
-    color: rgb(23, 33, 80);
-    transition: 0.7s;
-}
-.signUpText{
-    margin-top: 5rem;
-    text-align: center;
-    color: white;
-}
-.innerImage{
-    top: 50%;
-    position: relative;
-    transform: translate(-10%, -50%);
+.image img{
     height: 15rem;
     width: auto;
+    top: 50%;
+    position: relative;
+    transform: translate(-0%, -50%);
 }
-.signUpHeading{
+.addFormMain .addProductHeading{
     text-align: center;
-    margin: 10px 0;
-    color: rgb(111, 169, 206);
+    margin: 0px 0;
+    color: rgb(7, 189, 135);
     font-size: 30px;
     letter-spacing: 2px;
     font-weight: 600;
 }
-label{
+
+.addFormMain .addFormLabel{
     margin: 1.2rem 0 0.3rem;
     font-weight: 500;
     color: black;
     letter-spacing: 1px;
 }
-input{
+
+.addFormMain input{
     height: 1.9rem;
     padding-left: 0.5rem;
     border-radius: 5px;
     border: 1px solid rgb(163, 163, 163);
     outline: none;
 }
-
-button{
+.submitBtn{
     margin: 2rem 0 0.2rem;
     padding: 0.5rem 0;
     background-color: rgb(7, 189, 135);
@@ -88,7 +65,7 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
-button:hover{
+.submitBtn:hover{
     background-color: rgb(13, 119, 87);
     border: 1px solid rgb(13, 119, 87);
     transition: 0.7s;

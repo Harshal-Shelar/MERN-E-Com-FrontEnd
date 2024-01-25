@@ -1,0 +1,74 @@
+.addFormMain{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    min-width: 700px;
+    width: 700px;
+    min-height: 500px;
+    height: 500px;
+    display: flex;
+}
+.mainForm{
+    display: grid;
+    width: 50%;
+    padding: 2rem;
+    align-items: center;
+    border-top: 1px solid rgb(224, 224, 224);
+    box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
+}
+.image{
+    width: 50%;
+    background-color: rgb(7, 189, 135);
+    /* background-image: linear-gradient(to right, rgb(13, 119, 87), rgb(7, 189, 135)); */
+    box-shadow: 10px 5px 15px -2px #a2a2a2;
+    border-radius: 20px;
+}
+.image img{
+    height: 18rem;
+    width: auto;
+    top: 50%;
+    position: relative;
+    transform: translate(-9%, -50%);
+}
+.addFormMain .addProductHeading{
+    text-align: center;
+    margin: 0px 0;
+    color: rgb(7, 189, 135);
+    font-size: 30px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.addFormMain .addFormLabel{
+    margin: 1.2rem 0 0.3rem;
+    font-weight: 500;
+    color: black;
+    letter-spacing: 1px;
+}
+
+.addFormMain input{
+    height: 1.9rem;
+    padding-left: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgb(163, 163, 163);
+    outline: none;
+}
+.submitBtn{
+    margin: 2rem 0 0.2rem;
+    padding: 0.5rem 0;
+    background-color: rgb(7, 189, 135);
+    border: 1px solid rgb(7, 189, 135);
+    font-weight: 600;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.submitBtn:hover{
+    background-color: rgb(13, 119, 87);
+    border: 1px solid rgb(13, 119, 87);
+    transition: 0.7s;
+    box-shadow: 0px 0px 15px 3px rgb(7, 189, 135);
+}
