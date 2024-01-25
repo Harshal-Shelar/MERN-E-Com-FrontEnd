@@ -20,7 +20,7 @@
     border-top: 1px solid rgb(224, 224, 224);
 }
 
-.image{
+.signUpImage{
     width: 50%;
     background-image: linear-gradient(to right, rgb(13, 119, 87) , rgb(7, 189, 135));
     box-shadow: 10px 5px 15px -2px #a2a2a2;
@@ -49,11 +49,11 @@
     text-align: center;
     color: white;
 }
-.innerImage{
+.registerImage{
     top: 50%;
     position: relative;
-    transform: translate(-10%, -50%);
-    height: 15rem;
+    transform: translate(-13%, -50%);
+    height: 16rem;
     width: auto;
 }
 .signUpHeading{

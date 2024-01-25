@@ -37,8 +37,8 @@ const Login = () => {
 
     return (
         <div className='loginMain'>
-            <div className="image">
-                <img className='innerImg' src={loginBack} alt="" />
+            <div className="loginImage">
+                <img className='imageLogin' src={loginBack} alt="" />
             </div>
             <div className="loginForm">
                 <h2 className='loginHeading'>Login</h2>

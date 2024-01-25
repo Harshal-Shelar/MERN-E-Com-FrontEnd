@@ -24,8 +24,8 @@ const AddProducts = () => {
 
   return (
     <div className='addFormMain'>
-      <div className='image'>
-        <img src={addProductBack} alt="" />
+      <div className='addProductImg'>
+        <img className='imgAddProduct' src={addProductBack} alt="" />
       </div>
       <div className='mainForm'>
         <h1 className='addProductHeading'>Add Products</h1>

@@ -17,25 +17,26 @@
     border-top: 1px solid rgb(224, 224, 224);
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
 }
-.image{
-    width: 50%;
-    background-image: linear-gradient(to right, rgb(13, 119, 87), rgb(7, 189, 135));
+.addProductImg{
+    width: 60%;
+    background-color:  rgb(7, 189, 135);
+    /* background-image: linear-gradient(to right, rgb(13, 119, 87), rgb(7, 189, 135)); */
     box-shadow: 10px 5px 15px -2px #a2a2a2;
     border-radius: 20px;
 }
-.image img{
-    height: 15rem;
+.addProductImg .imgAddProduct{
+    height: 13rem;
     width: auto;
     top: 50%;
     position: relative;
-    transform: translate(-0%, -50%);
+    transform: translate(11%, -50%);
 }
 .addFormMain .addProductHeading{
     text-align: center;
     margin: 0px 0;
     color: rgb(7, 189, 135);
     font-size: 30px;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-weight: 600;
 }
 

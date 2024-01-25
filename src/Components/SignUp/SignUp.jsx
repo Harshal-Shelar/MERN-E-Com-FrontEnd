@@ -36,8 +36,8 @@ const SignUp = () => {
 
     return (
         <div className='registerForm'>
-            <div className="image">
-                    <img className='innerImage' src={regImg} alt="" />
+            <div className="signUpImage">
+                    <img className='registerImage' src={regImg} alt="" />
             </div>
             <div className="fields">
                 <h2 className='signUpHeading'>Register</h2>

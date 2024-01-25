@@ -9,18 +9,16 @@
     transform: translate(-50%, -50%);
     min-width: 700px;
     width: 700px;
-    min-height: 500px;
-    height: 500px;
 }
 
-.image {
+.loginImage {
     width: 50%;
     background-image: linear-gradient(to right, rgb(13, 119, 87), rgb(7, 189, 135));
     box-shadow: 10px 5px 15px -2px #a2a2a2;
     border-radius: 20px;
 }
 
-.innerImg {
+.imageLogin {
     top: 50%;
     position: relative;
     transform: translate(-0%, -50%);
