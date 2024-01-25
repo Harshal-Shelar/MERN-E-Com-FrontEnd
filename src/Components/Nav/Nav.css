@@ -21,10 +21,13 @@
     color: black;
     text-decoration: none;
 }
+.loginLogout{
+    display: flex;
+    align-items: center;
+}
 .loginLogout li{
     list-style: none;
     align-items: center;
-    margin-top: 10px;
 }
 .loginLogout li a{
     text-decoration: none;

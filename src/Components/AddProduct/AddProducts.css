@@ -6,15 +6,18 @@
     min-width: 700px;
     width: 700px;
     min-height: 500px;
-    height: 500px;
+    height: fit-content;
     display: flex;
+    overflow: auto;
+    box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
+
 }
-.mainForm{
+.addForm{
     display: grid;
     width: 50%;
     padding: 2rem;
     align-items: center;
-    border-top: 1px solid rgb(224, 224, 224);
+    border: 1px solid rgb(224, 224, 224);
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
 }
 .addProductImg{
@@ -41,12 +44,15 @@
 }
 
 .addFormMain .addFormLabel{
-    margin: 1.2rem 0 0.3rem;
+    margin: 0.5rem 0 0.1rem;
     font-weight: 500;
     color: black;
     letter-spacing: 1px;
 }
-
+.errorMsg{
+    color: red;
+    font-size: 13px;
+}
 .addFormMain input{
     height: 1.9rem;
     padding-left: 0.5rem;
