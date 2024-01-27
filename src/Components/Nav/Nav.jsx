@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Nav.css';
 
@@ -19,7 +19,7 @@ const Nav = () => {
         auth ?
           <ul className='nav-ul'>
             <div className="all-li">
-              <li className='nav-li'><Link to="/">Products</Link></li>
+              <li className='nav-li'><Link to="/">Product List</Link></li>
               <li className='nav-li'><Link to="/addProducts">Add Products</Link></li>
             </div>
             <div className='loginLogout'>
