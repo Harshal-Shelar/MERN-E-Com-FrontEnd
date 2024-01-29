@@ -9,6 +9,7 @@ import './index.css';
 import PrivateComp from './Components/PrivateComp.jsx';
 import Login from './Components/Login/Login.jsx';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct.jsx';
+import './responsive.css';
 
 function App() {
   return (
@@ -26,7 +27,7 @@ function App() {
           <Route path='/login' element={<Login />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-.updateFormMain{
+.updateFormMain {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -9,33 +9,37 @@
     height: fit-content;
     display: flex;
 }
-.mainForm{
+
+.mainForm {
     display: grid;
     width: 50%;
-    padding: 2rem;
+    padding: 2rem 1.5rem;
     align-items: center;
     border-top: 1px solid rgb(224, 224, 224);
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
 }
-.errorMsg{
+
+.errorMsg {
     color: red;
     font-size: 13px;
 }
-.image{
+
+.image {
     width: 50%;
     background-color: rgb(7, 189, 135);
-    /* background-image: linear-gradient(to right, rgb(13, 119, 87), rgb(7, 189, 135)); */
     box-shadow: 10px 5px 15px -2px #a2a2a2;
     border-radius: 20px;
 }
-.image img{
+
+.image img {
     height: 18rem;
     width: auto;
     top: 50%;
     position: relative;
     transform: translate(-9%, -50%);
 }
-.updateFormMain .addProductHeading{
+
+.updateFormMain .addProductHeading {
     text-align: center;
     margin: 0px 0;
     color: rgb(7, 189, 135);
@@ -44,35 +48,164 @@
     font-weight: 600;
 }
 
-.updateFormMain .addFormLabel{
+.updateFormMain .addFormLabel {
     margin: 1rem 0 0.1rem;
     font-weight: 500;
     color: black;
     letter-spacing: 1px;
 }
 
-.updateFormMain input{
+.updateFormMain input {
     height: 1.9rem;
     padding-left: 0.5rem;
     border-radius: 5px;
     border: 1px solid rgb(163, 163, 163);
     outline: none;
 }
-.submitBtn{
-    margin: 1rem 0 0.2rem;
-    padding: 0.5rem 0;
+
+.submitBtn {
     background-color: rgb(7, 189, 135);
     border: 1px solid rgb(7, 189, 135);
-    font-weight: 600;
-    color: white;
-    letter-spacing: 2px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
 }
-.submitBtn:hover{
+
+.submitBtn:hover {
     background-color: rgb(13, 119, 87);
     border: 1px solid rgb(13, 119, 87);
     transition: 0.7s;
-    box-shadow: 0px 0px 15px 3px rgb(7, 189, 135);
+    width: 100%;
+    box-shadow: 0px 0px 15px 4px rgb(7, 189, 135);
+}
+
+.updateBtns {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.UpdateCan {
+    background-color: gray;
+    border: 2px solid gray;
+}
+
+.UpdateCan:hover {
+    background-color: rgb(86, 86, 86);
+    box-shadow: 0px 0px 10px 4px gray;
+    border: 2px solid gray;
+}
+
+.UpdateDel:hover {
+    background-color: rgb(203, 0, 0);
+    box-shadow: 0px 0px 10px 4px red;
+    border: 2px solid rgb(203, 0, 0);
+}
+
+.UpdateCan,
+.UpdateDel,
+.submitBtn {
+    font-weight: 600;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin: 1rem 0 0.2rem;
+    padding: 0.5rem 0;
+}
+
+.UpdateDel {
+    background-color: red;
+    border: 2px solid red;
+}
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    width: 550px;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+    cursor: pointer;
+
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+    text-align: center;
+}
+
+.popupHeading {
+    font-size: 20px;
+    margin: 1rem 0 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.popupBtns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.popupCan {
+    padding: 0.5rem 2rem;
+    background-color: gray;
+    border: 2px solid gray;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    border-radius: 6px;
+}
+
+.popupDel {
+    padding: 0.5rem 2rem;
+    background-color: rgb(207, 0, 0);
+    border: 2px solid rgb(207, 0, 0);
+    ;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    border-radius: 6px;
+}
+
+.popupDel:hover {
+    background-color: black;
+    box-shadow: 0px 0px 10px 3px red;
+    border: 2px solid red;
+}
+
+.popupCan:hover {
+    background-color: black;
+    border: 2px solid gray;
+    box-shadow: 0px 0px 10px 3px gray;
+    color: white;
+}
+
+@media screen and (max-width: 700px) {
+
+    .popup {
+        width: 70%;
+    }
 }

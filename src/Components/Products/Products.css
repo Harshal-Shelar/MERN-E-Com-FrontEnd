@@ -1,18 +1,21 @@
-.productList{
+.productList {
     margin: 2rem auto;
     width: fit-content;
 }
-.productListHeading{
+
+.productListHeading {
     font-size: 50px;
+    font-weight: bolder;
     text-align: center;
     letter-spacing: 3px;
     margin-block-start: 0rem;
     margin-block-end: 1rem;
-    font-weight: 600;
-    color: rgb(7, 189, 135);
-    text-shadow: 4px 0px 5px rgb(172, 172, 172);
+    background: linear-gradient(50deg, #000000 0%, #61c8ff 100%);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
-.search-product-box{
+
+.search-product-box {
     height: 1.9rem;
     padding-left: 0.5rem;
     border-radius: 5px;
@@ -21,7 +24,8 @@
     width: 98%;
     margin: 0 auto;
 }
-.headingUl{
+
+.headingUl {
     display: flex;
     list-style: none;
     padding-inline-start: 10px;
@@ -33,7 +37,8 @@
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
-.headingLi{
+
+.headingLi {
     text-wrap: nowrap;
     min-width: 150px;
     font-size: 18px;
@@ -41,14 +46,16 @@
     font-weight: bold;
     letter-spacing: 1px;
 }
-.srCol{
+
+.srCol {
     width: 70px !important;
     text-wrap: nowrap;
     font-size: 18px;
     font-weight: 600;
     padding-bottom: 1rem;
 }
-.dataUl{
+
+.dataUl {
     display: flex;
     list-style: none;
     margin-block-start: 0.8em;
@@ -56,49 +63,165 @@
     padding: 0 2rem;
     padding-inline-start: 30px;
 }
-.dataLiSr{
+
+.dataLiSr {
     width: 70px;
 }
-.dataLi{
+
+.dataLi {
     text-wrap: nowrap;
     min-width: 150px;
     width: fit-content;
     letter-spacing: 0.5px;
 }
-.btns{
+
+.btns {
     display: flex;
     gap: 1rem;
 }
-.mainTable{
+
+.mainTable {
     border: 1px solid rgb(224, 224, 224);
     border-radius: 15px;
     box-shadow: 7px 7px 15px 1px rgb(217, 217, 217);
     margin-top: 1rem;
 }
-.updateBtn{
+
+.updateBtn {
     background-color: rgb(0, 116, 210);
 }
-.updateBtn:hover{
-    background-color: rgb(0, 89, 162);
-    box-shadow: 0px 0px 15px 2px rgb(0, 89, 162);
+
+.updateBtn:hover {
+    background-color: rgb(0, 0, 0);
+    box-shadow: 0px 0px 15px 3px rgb(0, 89, 162);
     transition: 0.5s;
 }
-.deleteBtn, .updateBtn{
+
+.deleteBtn,
+.updateBtn {
     margin: 0;
     padding: 0.5rem 1rem;
     font-size: 14px;
 }
-.deleteBtn{
+
+.deleteBtn {
     background-color: red;
     border: none;
 }
-.deleteBtn:hover{
-    background-color: rgb(167, 0, 0);
+
+.deleteBtn:hover {
+    background-color: rgb(0, 0, 0);
     border: none;
-    box-shadow: 0px 0px 10px 2px rgb(167, 0, 0);
+    box-shadow: 0px 0px 10px 3px rgb(167, 0, 0);
     transition: 0.5s;
 }
-.updateBtn a{
+
+.updateBtn a {
     text-decoration: none;
     color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 500ms;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.popup {
+    margin: 70px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    width: 550px;
+    position: relative;
+    transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+    margin-top: 0;
+    color: #333;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.popup .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.popup .close:hover {
+    color: #06D85F;
+    cursor: pointer;
+
+}
+
+.popup .content {
+    max-height: 30%;
+    overflow: auto;
+    text-align: center;
+}
+
+.popupHeading {
+    font-size: 20px;
+    margin: 1rem 0 0;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.popupBtns {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.popupCan {
+    padding: 0.5rem 2rem;
+    background-color: gray;
+    border: 2px solid gray;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    border-radius: 6px;
+}
+
+.popupDel {
+    padding: 0.5rem 2rem;
+    background-color: rgb(207, 0, 0);
+    border: 2px solid rgb(207, 0, 0);
+    ;
+    color: rgb(255, 255, 255);
+    align-items: center;
+    border-radius: 6px;
+}
+
+.popupDel:hover {
+    background-color: black;
+    box-shadow: 0px 0px 10px 3px red;
+    border: 2px solid red;
+}
+
+.popupCan:hover {
+    background-color: black;
+    border: 2px solid gray;
+    box-shadow: 0px 0px 10px 3px gray;
+    color: white;
+}
+
+@media screen and (max-width: 700px) {
+
+    .popup {
+        width: 70%;
+    }
 }
