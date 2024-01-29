@@ -85,6 +85,7 @@
     border-radius: 15px;
     box-shadow: 7px 7px 15px 1px rgb(217, 217, 217);
     margin-top: 1rem;
+    background-color: rgb(240, 240, 240);
 }
 
 .updateBtn {
