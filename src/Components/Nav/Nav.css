@@ -16,13 +16,18 @@
     display: inline-block;
     font-weight: 600;
 }
-
+.nav-li:hover{
+    transition: 0.7s;
+    text-shadow: 0px 1px 7px rgb(7, 189, 135);
+}
 .nav-li a {
     text-align: center;
     color: black;
     text-decoration: none;
 }
-
+.nav-li a:focus{
+    color: rgb(13, 119, 87);
+}
 .loginLogout {
     display: flex;
     align-items: center;

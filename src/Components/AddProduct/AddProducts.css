@@ -17,7 +17,6 @@
     width: 50%;
     padding: 2rem;
     align-items: center;
-    border: 1px solid rgb(224, 224, 224);
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
 }
 .addProductImg{
@@ -53,6 +52,11 @@
     color: red;
     font-size: 13px;
 }
+.addBtns{
+    display: flex;
+    gap: 1rem;
+}
+
 .addFormMain input{
     height: 1.9rem;
     padding-left: 0.5rem;
@@ -60,7 +64,26 @@
     border: 1px solid rgb(163, 163, 163);
     outline: none;
 }
-.submitBtn{
+.addCan{
+    width: 100%;
+    margin: 2rem 0 0.2rem;
+    padding: 0.5rem 0;
+    background-color: gray;
+    border: 2px solid gray;
+    font-weight: 600;
+    color: white;
+    letter-spacing: 2px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.addCan:hover{
+    background-color: rgb(81, 81, 81);
+    border: 2px solid gray;
+    box-shadow: 0px 0px 10px 3px gray;
+    transition: 0.7s;
+}
+.addSubmitBtn{
     margin: 2rem 0 0.2rem;
     padding: 0.5rem 0;
     background-color: rgb(7, 189, 135);
@@ -71,8 +94,9 @@
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    width: 100%;
 }
-.submitBtn:hover{
+.addSubmitBtn:hover{
     background-color: rgb(13, 119, 87);
     border: 1px solid rgb(13, 119, 87);
     transition: 0.7s;

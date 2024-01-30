@@ -13,6 +13,9 @@ const AddProducts = () => {
 
   const navigate = useNavigate();
 
+  const addCanNav = () => {
+    navigate('/')
+  }
   const addProduct = async () => {
 
     if (!name || !price || !category || !company) {
@@ -25,7 +28,7 @@ const AddProducts = () => {
         body: JSON.stringify({ name, price, category, company, userId }),
         headers: {
           'Content-Type': 'application/json',
-          authorization : `bearer ${JSON.parse(localStorage.getItem('token'))}`
+          authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
         }
       });
       result = await result.json();
@@ -56,8 +59,10 @@ const AddProducts = () => {
         <label className='addFormLabel'>Company</label>
         <input type="text" placeholder='Enter Company' onChange={(e) => setConpany(e.target.value)} />
         {error && !company && <span className='errorMsg'>Company is Required</span>}
-
-        <button className='submitBtn' onClick={addProduct}>Add Product</button>
+        <div className="addBtns">
+          <button className='addCan' onClick={addCanNav}>Cancel</button>
+          <button className='addSubmitBtn' onClick={addProduct}>Add Product</button>
+        </div>
       </div>
     </div>
   )

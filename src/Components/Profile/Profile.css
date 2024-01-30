@@ -1,12 +1,73 @@
-.mainProfile{
+.mainProfile {
     margin: 2rem auto;
     width: fit-content;
 }
 
-.name{
+.name {
     display: flex;
     letter-spacing: 1px;
     margin: 1rem 0;
     gap: 2rem;
     width: 100%;
+}
+
+.card {
+    box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    width: fit-content;
+    min-width: 350px;
+    margin: 3rem auto;
+    text-align: center;
+    font-family: arial;
+    padding: 1rem 1rem 1rem;
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+}
+
+.contactBtn {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: rgb(13, 119, 87);
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+.fa-power-off{
+    margin-right: 0.5rem;
+}
+.social{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+
+}
+.avatarImg{
+    height: 10rem;
+    width: auto;
+    border-radius: 50%;
+    padding: 0;
+    filter: drop-shadow(10px 5px 5px rgb(185, 185, 185));
+}
+.avatarName{
+    letter-spacing: 1px;
+}
+.socialHandle {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+}
+
+.contactBtn:hover{
+    background-color: black;
+    color: white;
+}
+.socialHandle:hover {
+    opacity: 0.7;
 }

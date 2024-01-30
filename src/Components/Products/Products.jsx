@@ -23,7 +23,7 @@ const Products = () => {
     setProducts(result);
   }
 
-  const getProductId = (id,name) => {
+  const getProductId = (id, name) => {
     setDeleteId(id);
     setPopup(true);
     setName(name)
@@ -67,8 +67,12 @@ const Products = () => {
     <>
       <div className="productList">
         <h3 className='productListHeading'>Product List</h3>
-        <input type="" className='search-product-box' placeholder='Search Product'
-          onChange={searchHandle} />
+
+        <div className="input-icons">
+          <i class="fa fa-search"></i>
+          <input class="input-field" onChange={searchHandle} type="text" placeholder='Search Product...'></input>
+        </div>
+
         <div className="mainTable">
           <ul className='headingUl'>
             <li className='srCol'>S. No.</li>
@@ -91,7 +95,7 @@ const Products = () => {
 
               </ul>
             )
-              : <h1>No Result Found</h1>
+              : <h1 className='noResFound'>No Result Found</h1>
           }
         </div>
       </div>
@@ -100,10 +104,10 @@ const Products = () => {
           <div className="overlay">
             <div className="popup">
               <div className="content">
-                <p className='popupHeading'>You want to delete the record of {getName} ?</p>
+                <p className='popupHeading'>You want to delete the record of <span className='popupTitle'>{getName}</span>  ?</p>
                 <div className="popupBtns">
-                  <button className='popupCan' onClick={()=>setPopup(false)}>Cancel</button>
-                  <button className='popupDel' onClick={()=>deleteProduct(deleteId)}>Delete</button>
+                  <button className='popupCan' onClick={() => setPopup(false)}>Cancel</button>
+                  <button className='popupDel' onClick={() => deleteProduct(deleteId)}>Delete</button>
                 </div>
               </div>
             </div >
