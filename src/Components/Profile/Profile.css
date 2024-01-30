@@ -71,3 +71,10 @@
 .socialHandle:hover {
     opacity: 0.7;
 }
+
+@media (max-width : 767px) {
+    .card{
+        width: 70%;
+        min-width: 70%;
+    }
+}

@@ -257,3 +257,12 @@
         width: 70%;
     }
 }
+
+@media (max-width : 800px) {
+    .productList{
+        overflow: auto;
+    }
+    .mainTable{
+        overflow-y: auto;
+    }
+}

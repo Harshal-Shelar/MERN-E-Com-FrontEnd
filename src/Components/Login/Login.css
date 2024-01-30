@@ -92,3 +92,39 @@
     color: rgb(55, 87, 107);
     transition: 0.7s;
 }
+
+@media (max-width : 767px) {
+    .loginImage {
+        display: none;
+    }
+
+    .loginMain {
+        display: inline-block;
+        width: 85%;
+        min-width: 70%;
+        box-shadow: 0px 0px 15px 5px rgb(214, 214, 214);
+        border-radius: 20px;
+    }
+
+    .loginHeading{
+        color: rgb(7, 189, 135);
+        text-shadow: 0px 2px 10px gray;
+    }
+
+    .loginForm{
+        width: auto;
+    }
+    .loginInp{
+        height: 2.5rem;
+        font-size: 16px;
+    }
+    .loginBtn{
+        font-size: 20px;
+    }
+    .loginLabel{
+        font-size: 20px;
+    }
+    .loginPTag a{
+        font-size: 19px;
+    }
+}

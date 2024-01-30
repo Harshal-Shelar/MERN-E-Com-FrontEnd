@@ -209,3 +209,22 @@
         width: 70%;
     }
 }
+
+@media (max-width : 767px) {
+    .updateFormMain{
+        display: inline-block;
+    }
+    .image{
+        display: none;
+    }
+    .mainForm{
+        margin: 4rem auto 0;
+        width: 45%;
+    }
+    .updateBtns{
+        display: inline-block;
+    }
+    .UpdateCan, .UpdateDel, .submitBtn{
+        font-size: 18px;
+    }
+}
