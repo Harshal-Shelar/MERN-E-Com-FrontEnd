@@ -108,7 +108,8 @@
 
     .loginHeading{
         color: rgb(7, 189, 135);
-        text-shadow: 0px 2px 10px gray;
+        text-shadow: 0px 2px 10px rgb(7, 189, 135);
+        font-size: 40px;
     }
 
     .loginForm{
