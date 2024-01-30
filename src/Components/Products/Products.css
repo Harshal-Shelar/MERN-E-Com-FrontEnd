@@ -261,6 +261,7 @@
 @media (max-width : 800px) {
     .productList{
         overflow: auto;
+        width: 90%;
     }
     .mainTable{
         overflow-y: auto;
