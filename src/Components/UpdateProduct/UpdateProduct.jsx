@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import './UpdateProduct.css'
 import updateProductBack from '../../Assets/Images/editProductBack.png';
 import { useParams, useNavigate } from 'react-router-dom';
+import trashIcon from '../../Assets/Images/trash.png'
+import updateIcon from '../../Assets/Images/updateIcon.png'
 
 const UpdateProduct = () => {
     const [name, setName] = useState('');
@@ -11,6 +13,8 @@ const UpdateProduct = () => {
     const [getId, setId] = useState('');
     const [error, setError] = useState(false);
     const [popup, setPopup] = useState();
+    const [successPopup, setsuccessPopup] = useState();
+    const [updatePopup, setupdatePopup] = useState();
 
     const params = useParams();
 
@@ -39,23 +43,27 @@ const UpdateProduct = () => {
         setId(result._id);
     }
 
-    const updateCan=()=>{
+    const updateCan = () => {
         navigate('/')
     }
 
     const deleteProduct = async (getId) => {
         let result = await fetch(`http://localhost:5000/product/${getId}`, {
-          method: "Delete",
-          headers: {
-            authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
-          }
+            method: "Delete",
+            headers: {
+                authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+            }
         });
         result = await result.json();
         if (result) {
-          setPopup(false);
-          navigate('/')
+            setPopup(false);
+            setsuccessPopup(true);
+            setTimeout(() => {
+                setsuccessPopup(false);
+                navigate('/')
+            }, 2000);
         }
-      }
+    }
 
     const updateProduct = async () => {
 
@@ -72,7 +80,13 @@ const UpdateProduct = () => {
                 }
             });
             result = await result.json();
-            navigate('/');
+            if (result) {
+                setupdatePopup(true)
+                setTimeout(() => {
+                    setupdatePopup(false)
+                    navigate('/');
+                }, 2000);
+            }
         }
     }
 
@@ -116,6 +130,32 @@ const UpdateProduct = () => {
                                     <button className='popupCan' onClick={() => setPopup(false)}>Cancel</button>
                                     <button className='popupDel' onClick={() => deleteProduct(getId)}>Delete</button>
                                 </div>
+                            </div>
+                        </div >
+                    </div > :
+                    <div></div>
+            }
+
+            {
+                successPopup ?
+                    <div className="overlay">
+                        <div className="popup">
+                            <div className="content">
+                                <img className='rightIcon' src={trashIcon} alt="" />
+                                <p className='popupHeading'>Data deleted Successfully</p>
+                            </div>
+                        </div >
+                    </div > :
+                    <div></div>
+            }
+
+            {
+                updatePopup ?
+                    <div className="overlay">
+                        <div className="popup">
+                            <div className="content">
+                                <img className='rightIcon' src={updateIcon} alt="" />
+                                <p className='popupHeading'>Data Updated Successfully</p>
                             </div>
                         </div >
                     </div > :

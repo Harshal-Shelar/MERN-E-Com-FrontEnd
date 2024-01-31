@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Products.css';
 import { Link } from 'react-router-dom';
+import trashIcon from '../../Assets/Images/trash.png'
 
 const Products = () => {
 
@@ -8,6 +9,7 @@ const Products = () => {
   const [deleteId, setDeleteId] = useState();
   const [popup, setPopup] = useState();
   const [getName, setName] = useState();
+  const [successPopup, setsuccessPopup] = useState();
 
   useEffect(() => {
     getProducts()
@@ -36,12 +38,17 @@ const Products = () => {
         authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
     });
-    console.log(result);
     result = await result.json();
     console.log(result);
-    if (result) {
+    if (result.acknowledged) {
       setPopup(false);
       getProducts();
+      setsuccessPopup(true);
+
+      setTimeout(()=>{
+        setsuccessPopup(false);
+      },2000);
+
     }
   }
 
@@ -68,36 +75,37 @@ const Products = () => {
       <div className="productList">
         <h3 className='productListHeading'>Product List</h3>
 
-        <div className="input-icons">
-          <i class="fa fa-search"></i>
-          <input class="input-field" onChange={searchHandle} type="text" placeholder='Search Product...'></input>
-        </div>
+        <input className="input-field" onChange={searchHandle} type="text" placeholder='Search Product...'></input>
 
-        <div className="mainTable">
-          <ul className='headingUl'>
-            <li className='srCol'>S. No.</li>
-            <li className='headingLi'>Name</li>
-            <li className='headingLi'>Price</li>
-            <li className='headingLi'>Category</li>
-            <li className='headingLi'>Actions</li>
-          </ul>
-          {
-            products.length > 0 ? products.map((item, index) =>
-              <ul className='dataUl' key={item._id}>
-                <li className='dataLiSr'>{index + 1}</li>
-                <li className='dataLi'>{item.name}</li>
-                <li className='dataLi'>{item.price}</li>
-                <li className='dataLi'>{item.category}</li>
-                <li className='btns'>
-                  <button className='deleteBtn' onClick={() => getProductId(item._id, item.name)}>Delete</button>
-                  <button className='updateBtn'><Link to={"/update/" + item._id} >Update </Link></button>
-                </li>
-
-              </ul>
-            )
-              : <h1 className='noResFound'>No Result Found</h1>
-          }
-        </div>
+        <table className='mainTable'>
+          <thead className='tableHead'>
+            <tr>
+              <th>Sr. No.</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Company</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((value, key) => {
+              return (
+                <tr key={key}>
+                  <td className='tableTd'>{key + 1}</td>
+                  <td className='tableTd'>{value.name}</td>
+                  <td className='tableTd'>{value.price}</td>
+                  <td className='tableTd'>{value.category}</td>
+                  <td className='tableTd'>{value.company}</td>
+                  <td className='actionBtns'>
+                    <button className='updateBtn'><Link to={"/update/" + value._id} >Edit</Link></button>
+                    <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}>Delete</button>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
       {
         popup ?
@@ -109,6 +117,19 @@ const Products = () => {
                   <button className='popupCan' onClick={() => setPopup(false)}>Cancel</button>
                   <button className='popupDel' onClick={() => deleteProduct(deleteId)}>Delete</button>
                 </div>
+              </div>
+            </div >
+          </div > :
+          <div></div>
+      }
+
+      {
+        successPopup ? 
+        <div className="overlay">
+            <div className="popup">
+              <div className="content">
+                <img className='rightIcon' src={trashIcon} alt="" />
+                <p className='popupHeading'>Data deleted Successfully</p>
               </div>
             </div >
           </div > :

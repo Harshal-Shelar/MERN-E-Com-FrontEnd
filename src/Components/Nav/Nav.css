@@ -32,10 +32,14 @@
     display: flex;
     align-items: center;
 }
-
+.all-li{
+    display: flex;
+    text-wrap: nowrap;
+}
 .loginLogout li {
     list-style: none;
     align-items: center;
+    text-wrap: nowrap;
 }
 
 .loginLogout li a {
