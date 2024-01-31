@@ -109,7 +109,7 @@
     .loginHeading{
         color: white;
         text-shadow:
-            1px 1px 2px black,
+            1px 1px 2px rgb(1, 189, 135),
             0 0 1em rgb(1, 189, 135),
             0 0 0.2em rgb(1, 189, 135);
         font-size: 40px;
