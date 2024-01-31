@@ -80,12 +80,12 @@ const Products = () => {
         <table className='mainTable'>
           <thead className='tableHead'>
             <tr>
-              <th>Sr. No.</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Category</th>
-              <th>Company</th>
-              <th>Actions</th>
+              <th className='tableText'>Sr. No.</th>
+              <th className='tableText'>Name</th>
+              <th className='tableText'>Price</th>
+              <th className='tableText'>Category</th>
+              <th className='tableText'>Company</th>
+              <th className='tableText'>Actions</th>
             </tr>
           </thead>
           <tbody>

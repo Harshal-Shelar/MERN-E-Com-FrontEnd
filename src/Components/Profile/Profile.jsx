@@ -12,7 +12,7 @@ const Profile = () => {
 
   const logout = () => {
     localStorage.removeItem("user");
-    navigate('/signUp');
+    navigate('/login');
   }
 
   useEffect(() => {

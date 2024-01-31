@@ -13,6 +13,7 @@
     background: linear-gradient(50deg, red 0%, rgb(0, 116, 210) 80%);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
+    background-clip: hidden;
 }
 
 .popupTitle {
@@ -22,6 +23,7 @@
 .tableHead {
     text-align: left;
     font-weight: bolder;
+    border-bottom: 2px solid black;
 }
 
 .mainTable {
@@ -41,7 +43,7 @@
     width: 150px;
     max-width: fit-content;
     text-wrap: nowrap;
-    padding: 0.8rem 0;
+    padding: 0.8rem;
 }
 .actionBtns {
     display: flex;
@@ -205,6 +207,8 @@
 
     .mainTable {
         overflow-y: auto;
+        padding: 1rem 1rem 1rem 2rem;
+        margin-top: 9rem;
     }
 
     .productListHeading {
@@ -213,5 +217,10 @@
 
     .input-icons {
         margin-top: 6rem;
+    }
+    .input-field{
+        margin: 5rem 1rem 0 0;
+        position: fixed;
+        width: -webkit-fill-available;
     }
 }

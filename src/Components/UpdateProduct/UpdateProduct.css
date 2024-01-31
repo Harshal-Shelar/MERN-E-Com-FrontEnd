@@ -1,8 +1,5 @@
 .updateFormMain {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
+    margin: 4rem auto;
     min-width: 700px;
     width: 700px;
     min-height: 500px;
@@ -212,14 +209,16 @@
 
 @media (max-width : 767px) {
     .updateFormMain{
-        display: inline-block;
+        width: 80%;
+        min-width: 80%;
+        margin: 2rem auto;
     }
     .image{
         display: none;
     }
     .mainForm{
-        margin: 4rem auto 0;
-        width: 45%;
+        margin: 0 auto 0;
+        width: 100%;
     }
     .updateBtns{
         display: inline-block;
