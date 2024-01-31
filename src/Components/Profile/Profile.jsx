@@ -7,6 +7,9 @@ const Profile = () => {
 
   const [name, setName] = useState();
   const [email, setEmail] = useState();
+  const [address, setAddress] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [education, setEducation] = useState();
 
   const navigate = useNavigate();
 
@@ -19,17 +22,25 @@ const Profile = () => {
     const auth = localStorage.getItem('user');
     let name = JSON.parse(auth).name;
     let email = JSON.parse(auth).email;
-    setName(name)
-    setEmail(email)
+    let address = JSON.parse(auth).address;
+    let phoneNumber = JSON.parse(auth).phoneNumber;
+    let education = JSON.parse(auth).education;
+    setName(name);
+    setEmail(email);
+    setAddress(address);
+    setPhoneNumber(phoneNumber);
+    setEducation(education);
   }, []);
 
   return (
-    <div classNameName='mainProfile'>
+    <div className='mainProfile'>
       <div className="card">
         <img className='avatarImg' src={avatar} alt="John" />
           <h1 className='avatarName'>{name}</h1>
           <p className="title">Email : {email}</p>
-          <p>Harvard University</p>
+          <p className="title">Education : {education}</p>
+          <p className="title">Phone Number : {phoneNumber}</p>
+          <p className="title">Address : {address}</p>
           <div className='social'>
             <a className="socialHandle" href="#"><i className="fa fa-dribbble"></i></a>
             <a className="socialHandle" href="#"><i className="fa fa-twitter"></i></a>

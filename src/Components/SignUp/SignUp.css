@@ -1,8 +1,5 @@
 .registerForm {
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
+    margin: 4rem auto;
     display: flex;
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
     border-top-left-radius: 20px;
@@ -106,7 +103,7 @@ button:hover {
 
 @media (max-width : 767px) {
     .registerForm {
-        display: inline-block;
+        width: 86%;
         min-width: 86%;
         border-radius: 20px;
         box-shadow: 0px 0px 15px 5px rgb(214, 214, 214);

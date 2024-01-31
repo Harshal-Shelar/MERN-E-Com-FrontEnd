@@ -3,10 +3,7 @@
     box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    transform: translate(-50%, -50%);
+    margin: 4rem auto;
     min-width: 700px;
     width: 700px;
 }
@@ -99,9 +96,8 @@
     }
 
     .loginMain {
-        display: inline-block;
         width: 85%;
-        min-width: 70%;
+        min-width: 85%;
         box-shadow: 0px 0px 15px 5px rgb(214, 214, 214);
         border-radius: 20px;
     }
@@ -117,7 +113,7 @@
     }
 
     .loginForm{
-        width: auto;
+        width: 100%;
     }
     .loginInp{
         height: 2.5rem;

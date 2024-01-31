@@ -7,6 +7,9 @@ const SignUp = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [address, setAddress] = useState("");
+    const [education, setEducation] = useState("");
     const [error, setError] = useState(false);
 
     const navigate = useNavigate();
@@ -19,12 +22,12 @@ const SignUp = () => {
     }, [])
 
     const collectData = async () => {
-        if (!name || !email || !password) {
+        if (!name || !email || !password || !address || !phoneNumber || !education) {
             setError(true);
         } else {
             let result = await fetch("http://localhost:5000/register", {
                 method: 'post',
-                body: JSON.stringify({ name, email, password }),
+                body: JSON.stringify({ name, email, password, address, phoneNumber, education }),
                 headers: {
                     'Content-Type': 'application/json'
                 }
@@ -59,6 +62,18 @@ const SignUp = () => {
                 <label htmlFor="">Password</label>
                 <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Enter Password' />
                 {error && !password && <span className='errorMsg'>Password is Required</span>}
+
+                <label htmlFor="">Address</label>
+                <input type='text' value={address} onChange={(e) => setAddress(e.target.value)} placeholder='Enter Address' />
+                {error && !address && <span className='errorMsg'>Address is Required</span>}
+
+                <label htmlFor="">Phone Number</label>
+                <input type="phone" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder='Enter Phone Number' />
+                {error && !phoneNumber && <span className='errorMsg'>Phone Number is Required</span>}
+
+                <label htmlFor="">Education</label>
+                <input type="text" value={education} onChange={(e) => setEducation(e.target.value)} placeholder='Enter Education' />
+                {error && !education && <span className='errorMsg'>Education is Required</span>}
 
                 <button className='signUpBtn' onClick={collectData}>Sign Up</button>
                 <p className='pTag'>Already have an account ? <span className='loginSpan'> <Link to='/login'>Login here</Link> </span></p>
