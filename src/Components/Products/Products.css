@@ -43,7 +43,7 @@
     width: 150px;
     max-width: fit-content;
     text-wrap: nowrap;
-    padding: 0.8rem;
+    padding: 0.8rem 0.8rem 0.8rem 0;
 }
 .actionBtns {
     display: flex;

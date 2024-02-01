@@ -15,7 +15,7 @@ const Login = () => {
         if (auth) {
             navigate("/")
         }
-    }, [])
+    })
 
     const handleLogin = async () => {
         if (!email || !password) {

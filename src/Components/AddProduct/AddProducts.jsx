@@ -36,6 +36,7 @@ const AddProducts = () => {
       result = await result.json();
       if (result) {
         setsuccessPopup(true);
+        
         setTimeout(() => {
           navigate('/')
           setsuccessPopup(false);
