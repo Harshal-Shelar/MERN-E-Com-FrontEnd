@@ -22,8 +22,7 @@ const UpdateProduct = () => {
 
     useEffect(() => {
         getProductDetails();
-    }, [])
-
+    },[])
 
     const getUserId = (id, name) => {
         setPopup(true);

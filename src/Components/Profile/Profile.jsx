@@ -37,10 +37,10 @@ const Profile = () => {
       <div className="card">
         <img className='avatarImg' src={avatar} alt="John" />
           <h1 className='avatarName'>{name}</h1>
-          <p className="title">Email : {email}</p>
-          <p className="title">Education : {education}</p>
-          <p className="title">Phone Number : {phoneNumber}</p>
-          <p className="title">Address : {address}</p>
+          <p className="title">Email : <span className='profileData'>{email}</span> </p>
+          <p className="title">Education : <span className='profileData'>{education}</span> </p>
+          <p className="title">Phone Number :<span className='profileData'>{phoneNumber}</span> </p>
+          <p className="title">Address : <span className='profileData'>{address}</span></p>
           <div className='social'>
             <a className="socialHandle" href="#"><i className="fa fa-dribbble"></i></a>
             <a className="socialHandle" href="#"><i className="fa fa-twitter"></i></a>
