@@ -210,12 +210,13 @@
 }
 
 @media (max-width : 767px) {
-    .updateFormMain{
+    .updateFormMain {
         width: 80%;
         min-width: 80%;
         margin: 2rem auto;
     }
-    .updateFormMain input{
+
+    .updateFormMain input {
         height: 2.5rem;
         padding-left: 0.5rem;
         font-size: 17px;
@@ -224,20 +225,35 @@
         border: 1px solid rgb(163, 163, 163);
         outline: none;
     }
-    .image{
+
+    .image {
         display: none;
     }
-    .mainForm{
+
+    .mainForm {
         margin: 0 auto 0;
         width: 100%;
+        background-color: black;
+        border-radius: 15px;
     }
-    .updateBtns{
+
+    .updateFormMain .addFormLabel {
+        color: white;
+        margin-bottom: 0.3rem;
+        letter-spacing: 2px;
+    }
+
+    .updateBtns {
         display: inline-block;
     }
-    .UpdateCan{
+
+    .UpdateCan {
         margin-top: 2rem;
     }
-    .UpdateCan, .UpdateDel, .submitBtn{
+
+    .UpdateCan,
+    .UpdateDel,
+    .submitBtn {
         font-size: 18px;
         padding: 0.7rem 0;
     }

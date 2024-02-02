@@ -10,6 +10,7 @@ import PrivateComp from './Components/PrivateComp.jsx';
 import Login from './Components/Login/Login.jsx';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct.jsx';
 import './responsive.css';
+import Category from './Components/Categories/Category.jsx';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path='/' element={<Products />} />
             <Route path='/addProducts' element={<AddProducts />} />
             <Route path='/profile' element={<Profile />} />
+            <Route path='/categories' element={<Category />} />
             <Route path='/update/:id' element={<UpdateProduct />} />
           </Route>
           <Route path='/signUp' element={<SignUp />} />

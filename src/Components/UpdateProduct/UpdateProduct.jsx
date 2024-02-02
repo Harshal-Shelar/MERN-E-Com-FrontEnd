@@ -35,6 +35,7 @@ const UpdateProduct = () => {
             }
         });
         result = await result.json();
+        console.log("update product :- ",JSON.stringify(result));
         setName(result.name);
         setPrice(result.price);
         setCategory(result.category);
@@ -79,6 +80,8 @@ const UpdateProduct = () => {
                 }
             });
             result = await result.json();
+            console.log("update result :- ",result);
+            console.log("update arrLen :- ",result.arrLen );
             if (result) {
                 setupdatePopup(true)
                 setTimeout(() => {

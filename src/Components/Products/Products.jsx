@@ -39,7 +39,7 @@ const Products = () => {
       }
     });
     result = await result.json();
-    console.log(result.deletedCount);
+    console.log("delete :- ", result);
     
     if (result.acknowledged) {
       setPopup(false);

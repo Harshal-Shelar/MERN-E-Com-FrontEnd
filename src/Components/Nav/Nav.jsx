@@ -52,6 +52,7 @@ const Nav = () => {
                 <li className='nav-li logoOnly'><Link to="/">MERN</Link></li>
                 <li className='nav-li'><Link to="/">Product List</Link></li>
                 <li className='nav-li'><Link to="/addProducts">Add Products</Link></li>
+                <li className='nav-li'><Link to="/categories">Categories</Link></li>
               </div>
               <div className='loginLogout'>
                 <li className='nav-li'><i className="fa fa-bell-o" onClick={openNotification}></i><span className='notificationCount'>{notCount}</span></li>
