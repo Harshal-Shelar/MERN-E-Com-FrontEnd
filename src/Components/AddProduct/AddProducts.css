@@ -169,14 +169,25 @@
     .addFormMain{
         display: contents;
     }
+    .addFormMain input{
+        height: 2.5rem;
+        font-size: 17px;
+    }
     .addFormMain .addFormLabel {
         margin: 1rem 0 0.1rem;
+        font-weight: 600;
     }
     .addBtns{
         display: inline-block;
     }
     .addSubmitBtn{
         margin-top: 1rem;
+        padding: 0.8rem 0;
+        font-size: 18px;
+    }
+    .addCan{
+        padding: 0.8rem 0;
+        font-size: 18px;
     }
     .addForm{
         margin: 4rem auto;

@@ -50,6 +50,7 @@
     font-weight: 500;
     color: black;
     letter-spacing: 1px;
+    font-weight: 600;
 }
 
 .updateFormMain input {
@@ -214,6 +215,15 @@
         min-width: 80%;
         margin: 2rem auto;
     }
+    .updateFormMain input{
+        height: 2.5rem;
+        padding-left: 0.5rem;
+        font-size: 17px;
+        letter-spacing: 1px;
+        border-radius: 5px;
+        border: 1px solid rgb(163, 163, 163);
+        outline: none;
+    }
     .image{
         display: none;
     }
@@ -224,7 +234,11 @@
     .updateBtns{
         display: inline-block;
     }
+    .UpdateCan{
+        margin-top: 2rem;
+    }
     .UpdateCan, .UpdateDel, .submitBtn{
         font-size: 18px;
+        padding: 0.7rem 0;
     }
 }
