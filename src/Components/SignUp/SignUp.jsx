@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import './SignUp.css';
+// import './SignUp.css';
+import './SignUp.scss';
 import regImg from '../../Assets/Images/registerBack.png';
 import { useNavigate, Link } from 'react-router-dom';
 

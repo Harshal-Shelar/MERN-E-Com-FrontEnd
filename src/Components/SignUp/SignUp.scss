@@ -1,0 +1,138 @@
+.registerForm {
+    margin: 4rem auto;
+    display: flex;
+    box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    min-width: 700px;
+    width: fit-content;
+
+    .signUpImage {
+        width: 50%;
+        background-image: linear-gradient(to right, rgb(13, 119, 87), rgb(7, 189, 135));
+        box-shadow: 10px 5px 15px -2px #a2a2a2;
+        border-radius: 20px;
+
+        .registerImage {
+            top: 50%;
+            position: relative;
+            transform: translate(-13%, -50%);
+            height: 16rem;
+            width: auto;
+        }
+    }
+
+    .fields {
+        display: grid;
+        width: 50%;
+        padding: 1rem 2rem;
+        border-top: 1px solid rgb(224, 224, 224);
+        /* overflow: auto;
+        max-height: 550px; */
+
+        .signUpHeading {
+            text-align: center;
+            margin: 10px 0;
+            color: rgb(7, 189, 135);
+            font-size: 30px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        label {
+            margin: 1.2rem 0 0.3rem;
+            font-weight: 500;
+            color: black;
+            letter-spacing: 1px;
+        }
+        
+        input {
+            height: 1.9rem;
+            padding-left: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid rgb(163, 163, 163);
+            outline: none;
+        }
+
+        button {
+            margin: 2rem 0 0.2rem;
+            padding: 0.5rem 0;
+            background-color: rgb(7, 189, 135);
+            border: 1px solid rgb(7, 189, 135);
+            font-weight: 600;
+            color: white;
+            letter-spacing: 2px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: rgb(13, 119, 87);
+            border: 1px solid rgb(13, 119, 87);
+            transition: 0.7s;
+            box-shadow: 0px 0px 15px 3px rgb(7, 189, 135);
+        }
+        .pTag {
+            font-size: 15px;
+            text-align: center;
+
+            .loginSpan {
+                cursor: pointer;
+                color: rgb(35, 52, 137);
+                font-weight: 600;
+
+                a {
+                    text-decoration: none;
+                    color: rgb(35, 52, 137);
+                }
+            }
+            .loginSpan:hover {
+                color: rgb(23, 33, 80);
+                transition: 0.7s;
+            }
+        }
+    }
+}
+
+@media (max-width : 767px) {
+    .registerForm {
+        width: 86%;
+        min-width: 86%;
+        border-radius: 20px;
+        box-shadow: 0px 0px 15px 5px rgb(214, 214, 214);
+
+        .signUpHeading {
+            color: white;
+            font-size: 40px;
+            text-shadow:
+                1px 1px 2px rgb(1, 189, 135),
+                0 0 1em rgb(1, 189, 135),
+                0 0 0.2em rgb(1, 189, 135);
+        }
+
+        .signUpImage {
+            display: none;
+        }
+
+        .fields {
+            width: 100%;
+            border-radius: 10px;
+
+            input {
+                height: 2.5rem;
+                font-size: 16px;
+            }
+        
+            label {
+                font-size: 18px;
+            }
+            button{
+                font-size: 20px;
+            }
+            .pTag {
+                font-size: 19px;
+            }
+        }
+    }
+}
