@@ -32,7 +32,7 @@
         width: 50%;
         padding: 2rem;
         align-items: center;
-        box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
+        box-shadow: 7px 7px 15px 1px rgb(77, 77, 77);
 
         .addProductHeading {
             text-align: center;
@@ -142,11 +142,12 @@
         }
 
         .addForm {
-            margin: 4rem auto;
+            margin: 7rem auto 0;
             width: 75%;
             background-color: black;
             padding: 2rem 1.5rem;
             border-radius: 15px;
+            box-shadow: 7px 5px 15px 2px rgb(56, 56, 56);
 
             input {
                 height: 2.5rem;
