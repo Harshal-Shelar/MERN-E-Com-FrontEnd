@@ -1,0 +1,165 @@
+.updateFormMain {
+    margin: 4rem auto;
+    min-width: 700px;
+    width: 700px;
+    min-height: 500px;
+    height: fit-content;
+    display: flex;
+
+    .image {
+        width: 50%;
+        background-color: rgb(7, 189, 135);
+        box-shadow: 10px 5px 15px -2px #a2a2a2;
+        border-radius: 20px;
+
+        img {
+            height: 18rem;
+            width: auto;
+            top: 50%;
+            position: relative;
+            transform: translate(-9%, -50%);
+        }
+    }
+
+    .mainForm {
+        display: grid;
+        width: 50%;
+        padding: 2rem 1.5rem;
+        align-items: center;
+        border-top: 1px solid rgb(224, 224, 224);
+        box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
+
+        .addProductHeading {
+            text-align: center;
+            margin: 0px 0;
+            color: rgb(7, 189, 135);
+            font-size: 30px;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        label {
+            margin: 1rem 0 0.1rem;
+            font-weight: 500;
+            color: black;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        input {
+            height: 1.9rem;
+            padding-left: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid rgb(163, 163, 163);
+            outline: none;
+        }
+
+        .updateBtns {
+            display: flex;
+            gap: 1rem;
+            justify-content: space-between;
+
+            .submitBtn {
+                background-color: rgb(7, 189, 135);
+                border: 1px solid rgb(7, 189, 135);
+            }
+            
+            .submitBtn:hover {
+                background-color: rgb(13, 119, 87);
+                border: 1px solid rgb(13, 119, 87);
+                transition: 0.7s;
+                width: 100%;
+                box-shadow: 0px 0px 15px 4px rgb(7, 189, 135);
+            }
+
+            .UpdateCan {
+                background-color: gray;
+                border: 2px solid gray;
+            }
+
+            .UpdateCan:hover {
+                background-color: rgb(86, 86, 86);
+                box-shadow: 0px 0px 10px 4px gray;
+                border: 2px solid gray;
+            }
+
+            .UpdateDel:hover {
+                background-color: rgb(203, 0, 0);
+                box-shadow: 0px 0px 10px 4px red;
+                border: 2px solid rgb(203, 0, 0);
+            }
+
+            .UpdateCan,
+            .UpdateDel,
+            .submitBtn {
+                font-weight: 600;
+                color: white;
+                letter-spacing: 2px;
+                font-size: 14px;
+                border-radius: 5px;
+                cursor: pointer;
+                width: 100%;
+                margin: 1rem 0 0.2rem;
+                padding: 0.5rem 0;
+            }
+
+            .UpdateDel {
+                background-color: red;
+                border: 2px solid red;
+            }
+        }
+    }
+}
+
+@media (max-width : 767px) {
+    .updateFormMain {
+        width: 80%;
+        min-width: 80%;
+        margin: 2rem auto;
+
+        .image {
+            display: none;
+        }
+
+        .mainForm {
+            margin: 0 auto 0;
+            width: 100%;
+            background-color: black;
+            border-radius: 15px;
+            
+            .addProductHeading {
+                letter-spacing: 3px;
+            }
+
+            input {
+                height: 2.5rem;
+                padding-left: 0.5rem;
+                font-size: 17px;
+                letter-spacing: 1px;
+                border-radius: 5px;
+                border: 1px solid rgb(163, 163, 163);
+                outline: none;
+            }
+
+            label {
+                color: white;
+                margin-bottom: 0.3rem;
+                letter-spacing: 2px;
+            }
+            .updateBtns {
+                display: inline-block;
+
+                .UpdateCan {
+                    margin-top: 2rem;
+                }
+            
+                .UpdateCan,
+                .UpdateDel,
+                .submitBtn {
+                    font-size: 18px;
+                    padding: 0.7rem 0;
+                }
+            }
+        }
+    }
+}

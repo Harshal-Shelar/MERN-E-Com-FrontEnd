@@ -31,7 +31,7 @@
             text-align: center;
 
             .rightIcon {
-                height: 10rem;
+                height: 5rem;
                 width: auto;
             }
 
@@ -51,6 +51,7 @@
                 justify-content: center;
                 gap: 1rem;
                 padding-bottom: 0.5rem;
+                margin-top: 1rem;
 
                 .popupCan {
                     padding: 0.5rem 2rem;
@@ -59,30 +60,75 @@
                     color: rgb(255, 255, 255);
                     align-items: center;
                     border-radius: 6px;
+                    font-size: 18px;
+                    cursor: pointer;
                 }
 
                 .popupDel {
                     padding: 0.5rem 2rem;
                     background-color: rgb(207, 0, 0);
                     border: 2px solid rgb(207, 0, 0);
-                    ;
                     color: rgb(255, 255, 255);
                     align-items: center;
                     border-radius: 6px;
+                    font-size: 18px;
+                    cursor: pointer;
                 }
 
                 .popupDel:hover {
                     background-color: black;
                     box-shadow: 0px 0px 10px 3px red;
-                    border: 2px solid red;
+                    transition: 0.5s;
                 }
 
                 .popupCan:hover {
                     background-color: black;
-                    border: 2px solid gray;
                     box-shadow: 0px 0px 10px 3px gray;
-                    color: white;
+                    transition: 0.5s;
                 }
+            }
+            .notPopupHeading{
+                font-weight: bold;
+                font-size: 25px;
+                margin: 0;
+                letter-spacing: 1px;
+                color: rgb(13, 119, 87);
+            }
+            .notList{
+                height: 350px;
+                overflow: auto;
+                box-shadow: 7px 5px 10px 4px rgb(216, 216, 216);
+
+                .notificationMain{
+                    display: flex;
+                    justify-content: space-between;
+                    text-decoration: none;
+                    margin: 0.5rem 0.5rem;
+                    border: 1px solid rgb(215, 215, 215);
+                    padding: 0.5rem;
+                    color: black;
+                    align-items: center;
+                }
+                .notificationMain:hover{
+                    box-shadow: 0px 0px 10px 4px rgb(184, 184, 184);
+                    transition: 0.7s;
+                }
+            }
+            .notCan{
+                background-color: gray;
+                border: none;
+                color: white;
+                padding: 0.4rem 1.5rem;
+                border-radius: 5px;
+                font-size: 18px;
+                margin: 1rem 0 0.5rem;
+                cursor: pointer;
+            }
+            .notCan:hover{
+                background-color: black;
+                border: none;
+                transition: 0.7s;
+                box-shadow: 0px 0px 10px 4px rgb(74, 74, 74);
             }
         }
     }
@@ -92,6 +138,23 @@
     .overlay {
         .popup {
             width: 80%;
+            .content{
+                .popupBtns{
+                    .popupCan, .popupDel{
+                        font-size: 18px;
+                    }
+                }
+                .notList{
+                    .notificationMain{
+                        font-size: 18px;
+                        padding: 0.5rem;
+                        margin: 1rem 0.5rem;
+                    }
+                }
+                .notCan{
+                    font-size: 22px;
+                }
+            }
         }
     }
 }

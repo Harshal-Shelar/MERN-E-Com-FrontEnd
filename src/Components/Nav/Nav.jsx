@@ -38,7 +38,7 @@ const Nav = () => {
     <>
       {
         auth ?
-          <div>
+          <>
             <ul className='nav-ul'>
               <div className="all-li">
                 <li className='logoOnly'><Link to="/">MERN</Link></li>
@@ -74,28 +74,32 @@ const Nav = () => {
                 </div> :
                 <></>
             }
-          </div>
+          </>
           :
           <></>
       }
 
       {
         notPopup ?
-          <div className="overlay" onClick={() => setNotPopup(false)}>
+          <div className="overlay">
             <div className="popup notPopupHeight">
               <div className="content">
                 <p className='notPopupHeading'>Notification List</p>
+                <div className="notList">
+
                 {
                   notification.map((value, index) => {
                     return (
-                      <div key={value}>
-                        <Link className='notificationMain' to={"/update/" + value._id}>
+                      <div>
+                        <Link className='notificationMain' to={"/update/" + value._id} key={value._id} onClick={() => setNotPopup(false)}>
                           <span className='notSpan' >{value.name}</span>
                           <i className='fa fa-mail-forward' key={value}></i>
                         </Link>
                       </div>
                     )
                   })}
+                </div>
+                <button className='notCan' onClick={() => setNotPopup(false)}>Cancel</button>
               </div>
             </div >
           </div > :

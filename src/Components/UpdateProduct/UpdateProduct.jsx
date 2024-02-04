@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import './UpdateProduct.css'
+// import './UpdateProduct.css';
+import './UpdateProduct.scss';
 import updateProductBack from '../../Assets/Images/editProductBack.png';
 import { useParams, useNavigate } from 'react-router-dom';
 import trashIcon from '../../Assets/Images/trash.png'
 import updateIcon from '../../Assets/Images/updateIcon.png'
+import rightIcon from '../../Assets/Images/right.png'
 
 const UpdateProduct = () => {
     const [name, setName] = useState('');
@@ -100,19 +102,19 @@ const UpdateProduct = () => {
                 </div>
                 <div className='mainForm'>
                     <h1 className='addProductHeading'>Product Details</h1>
-                    <label className='addFormLabel'>Name</label>
+                    <label>Name</label>
                     <input type="text" placeholder='Enter Name' value={name} onChange={(e) => setName(e.target.value)} />
                     {error && !name && <span className='errorMsg'>Name is Required</span>}
 
-                    <label className='addFormLabel'>Price</label>
+                    <label>Price</label>
                     <input type="text" placeholder='Enter Price' value={price} onChange={(e) => setPrice(e.target.value)} />
                     {error && !price && <span className='errorMsg'>Price is Required</span>}
 
-                    <label className='addFormLabel'>Category</label>
+                    <label>Category</label>
                     <input type="text" placeholder='Enter Category' value={category} onChange={(e) => setCategory(e.target.value)} />
                     {error && !category && <span className='errorMsg'>Category is Required</span>}
 
-                    <label className='addFormLabel'>Company</label>
+                    <label>Company</label>
                     <input type="text" placeholder='Enter Company' value={company} onChange={(e) => setCompany(e.target.value)} />
                     {error && !company && <span className='errorMsg'>Company is Required</span>}
                     <div className="updateBtns">
@@ -127,6 +129,7 @@ const UpdateProduct = () => {
                     <div className="overlay">
                         <div className="popup">
                             <div className="content">
+                            <img className='rightIcon' src={trashIcon} alt="" />
                                 <p className='popupHeading'>You want to delete the record of {name} ?</p>
                                 <div className="popupBtns">
                                     <button className='popupCan' onClick={() => setPopup(false)}>Cancel</button>
@@ -135,7 +138,7 @@ const UpdateProduct = () => {
                             </div>
                         </div >
                     </div > :
-                    <div></div>
+                    <></>
             }
 
             {
@@ -143,12 +146,12 @@ const UpdateProduct = () => {
                     <div className="overlay">
                         <div className="popup">
                             <div className="content">
-                                <img className='rightIcon' src={trashIcon} alt="" />
+                                <img className='rightIcon' src={rightIcon} alt="" />
                                 <p className='popupHeading'>Data deleted Successfully</p>
                             </div>
                         </div >
                     </div > :
-                    <div></div>
+                    <></>
             }
 
             {
@@ -161,7 +164,7 @@ const UpdateProduct = () => {
                             </div>
                         </div >
                     </div > :
-                    <div></div>
+                    <></>
             }
         </>
 

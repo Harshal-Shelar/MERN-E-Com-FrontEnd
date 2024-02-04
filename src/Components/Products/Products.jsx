@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Products.scss';
 import { Link } from 'react-router-dom';
 import trashIcon from '../../Assets/Images/trash.png'
+import rightIcon from '../../Assets/Images/right.png'
 
 const Products = () => {
 
@@ -40,15 +41,15 @@ const Products = () => {
     });
     result = await result.json();
     console.log("delete :- ", result);
-    
+
     if (result.acknowledged) {
       setPopup(false);
       getProducts();
       setsuccessPopup(true);
 
-      setTimeout(()=>{
+      setTimeout(() => {
         setsuccessPopup(false);
-      },2000);
+      }, 2000);
 
     }
   }
@@ -79,6 +80,7 @@ const Products = () => {
         <input onChange={searchHandle} type="text" placeholder='Search Product...' />
 
         <table className='mainTable'>
+
           <thead>
             <tr>
               <th>Sr. No.</th>
@@ -93,14 +95,14 @@ const Products = () => {
             {products.map((value, key) => {
               return (
                 <tr key={key}>
-                  <td className='tableTd'>{key + 1}</td>
-                  <td className='tableTd'>{value.name}</td>
-                  <td className='tableTd'>{value.price}</td>
-                  <td className='tableTd'>{value.category}</td>
-                  <td className='tableTd'>{value.company}</td>
+                  <td>{key + 1}</td>
+                  <td>{value.name}</td>
+                  <td>{value.price}</td>
+                  <td>{value.category}</td>
+                  <td>{value.company}</td>
                   <td className='actionBtns'>
-                    <button className='updateBtn'><Link to={"/update/" + value._id} >Edit</Link></button>
-                    <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}>Delete</button>
+                    <button className='updateBtn'><Link to={"/update/" + value._id} ><i className="fa fa-edit"></i>Edit</Link></button>
+                    <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}><i className="fa fa-trash-o"></i>Delete</button>
                   </td>
                 </tr>
               );
@@ -113,6 +115,7 @@ const Products = () => {
           <div className="overlay">
             <div className="popup">
               <div className="content">
+                <img className='rightIcon' src={trashIcon} alt="" />
                 <p className='popupHeading'>You want to delete the record of <span className='popupTitle'>{getName}</span>  ?</p>
                 <div className="popupBtns">
                   <button className='popupCan' onClick={() => setPopup(false)}>Cancel</button>
@@ -125,11 +128,11 @@ const Products = () => {
       }
 
       {
-        successPopup ? 
-        <div className="overlay">
+        successPopup ?
+          <div className="overlay">
             <div className="popup">
               <div className="content">
-                <img className='rightIcon' src={trashIcon} alt="" />
+                <img className='rightIcon' src={rightIcon} alt="" />
                 <p className='popupHeading'>Data deleted Successfully</p>
               </div>
             </div >
