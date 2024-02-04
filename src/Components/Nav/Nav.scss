@@ -8,6 +8,9 @@
     padding-inline-start: 0;
     box-shadow: 7px 7px 15px 1px #d8d8d8;
     align-items: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
 
     .all-li {
         display: flex;
@@ -65,7 +68,7 @@
             font-weight: 600;
             cursor: pointer;
 
-            .notificationCount{
+            .notificationCount {
                 border-radius: 50%;
                 color: white;
                 padding: 1px 5px;
@@ -79,10 +82,12 @@
                 color: black;
                 text-decoration: none;
             }
+
             a:focus {
                 color: rgb(13, 119, 87);
             }
         }
+
         li:hover {
             transition: 0.7s;
             text-shadow: 0px 1px 7px black;
@@ -104,12 +109,16 @@
         display: none;
         visibility: hidden;
     }
+
     .respHeader {
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0.5rem 1rem 0.5rem 0.5rem;
         box-shadow: 4px 5px 15px 3px rgb(192, 192, 192);
+        position: fixed;
+        top: 0;
+        width: 95%;
 
         .respProfileImg {
             border-radius: 50%;
@@ -124,7 +133,8 @@
             letter-spacing: 1px;
         }
 
-        .fa-chevron-right, .fa-chevron-left{
+        .fa-chevron-right,
+        .fa-chevron-left {
             font-size: 30px;
             font-weight: bold;
         }
@@ -138,19 +148,19 @@
         height: 91vh;
         background-color: rgb(13, 119, 87);
         z-index: 999;
-        transition: 2.2s cubic-bezier(.36,-0.01,0,.77);
+        transition: 2.2s cubic-bezier(.36, -0.01, 0, .77);
 
         .respUl {
             top: 50%;
             margin-top: 50%;
 
-            li{
+            li {
                 list-style: none;
                 margin: 1.5rem 0;
                 font-size: 20px;
                 font-weight: bold;
 
-                a{
+                a {
                     color: white;
                     letter-spacing: 2px;
                     text-decoration: none;
