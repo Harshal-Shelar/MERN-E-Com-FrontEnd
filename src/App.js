@@ -6,10 +6,10 @@ import Profile from './Components/Profile/Profile.jsx';
 import Footer from './Components/Footer/Footer.jsx';
 import SignUp from './Components/SignUp/SignUp.jsx';
 import './index.css';
+import './styles.scss';
 import PrivateComp from './Components/PrivateComp.jsx';
 import Login from './Components/Login/Login.jsx';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct.jsx';
-import './responsive.css';
 import Category from './Components/Categories/Category.jsx';
 
 function App() {

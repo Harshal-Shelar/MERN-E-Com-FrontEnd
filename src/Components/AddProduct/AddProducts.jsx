@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import './AddProducts.css';
+import React, { useState } from 'react';
+import './AddProducts.scss';
 import addProductBack from '../../Assets/Images/addProductBack.png';
 import { useNavigate } from 'react-router-dom';
 import rightIcon from '../../Assets/Images/right.png'
@@ -54,24 +54,24 @@ const AddProducts = () => {
         <div className='addForm'>
           <h1 className='addProductHeading'>Add Products</h1>
 
-          <label className='addFormLabel'>Name</label>
+          <label>Name</label>
           <input type="text" placeholder='Enter Name' onChange={(e) => setName(e.target.value)} />
           {error && !name && <span className='errorMsg'>Name is Required</span>}
 
-          <label className='addFormLabel'>Price</label>
+          <label>Price</label>
           <input type="text" placeholder='Enter Price' onChange={(e) => setPrice(e.target.value)} />
           {error && !price && <span className='errorMsg'>Price is Required</span>}
 
-          <label className='addFormLabel'>Category</label>
+          <label>Category</label>
           <input type="text" placeholder='Enter Category' onChange={(e) => setCategory(e.target.value)} />
           {error && !category && <span className='errorMsg'>Category is Required</span>}
 
-          <label className='addFormLabel'>Company</label>
+          <label>Company</label>
           <input type="text" placeholder='Enter Company' onChange={(e) => setConpany(e.target.value)} />
           {error && !company && <span className='errorMsg'>Company is Required</span>}
           <div className="addBtns">
             <button className='addCan' onClick={addCanNav}>Cancel</button>
-            <button className='addSubmitBtn' onClick={addProduct}>Add Product</button>
+            <button className='addSubmitBtn' onClick={addProduct}>Submit</button>
           </div>
         </div>
       </div>
