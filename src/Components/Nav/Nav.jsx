@@ -35,7 +35,7 @@ const Nav = () => {
 
 
   return (
-    <div>
+    <>
       {
         auth ?
           <div>
@@ -101,7 +101,7 @@ const Nav = () => {
           </div > :
           <div></div>
       }
-    </div>
+    </>
   )
 }
 
