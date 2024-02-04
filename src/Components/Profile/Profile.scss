@@ -76,8 +76,9 @@
 
 @media (max-width : 767px) {
     .mainProfile{
+        width: 100%;
         .card{
-            width: 100%;
+            width: 80%;
             min-width: 70%;
         }
     }
