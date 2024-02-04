@@ -14,7 +14,7 @@ import Category from './Components/Categories/Category.jsx';
 
 function App() {
   return (
-    <div className="App">
+    <>
       <BrowserRouter>
         <Nav />
         <Routes>
@@ -30,7 +30,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       {/* <Footer /> */}
-    </div>
+    </>
   );
 }
 

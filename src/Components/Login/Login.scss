@@ -1,0 +1,143 @@
+.loginMain {
+    display: flex;
+    box-shadow: 7px 7px 15px -1px rgb(169, 169, 169);
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    margin: 4rem auto;
+    min-width: 700px;
+    width: 700px;
+
+    .loginImage {
+        width: 50%;
+        background-image: linear-gradient(to right, rgb(13, 119, 87), rgb(7, 189, 135));
+        box-shadow: 10px 5px 15px -2px #a2a2a2;
+        border-radius: 20px;
+
+        .imageLogin {
+            top: 50%;
+            position: relative;
+            transform: translate(-0%, -50%);
+            height: 12rem;
+            width: auto;
+        }
+    }
+
+    .loginForm {
+        display: grid;
+        width: 50%;
+        padding: 1rem 2rem;
+        border-top: 1px solid rgb(224, 224, 224);
+
+        .loginHeading {
+            text-align: center;
+            margin: 10px 0;
+            color: rgb(7, 189, 135);
+            font-size: 30px;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        label {
+            margin: 1.2rem 0 0.3rem;
+            font-weight: 500;
+            color: black;
+            letter-spacing: 1px;
+        }
+
+        input {
+            height: 1.9rem;
+            padding-left: 0.5rem;
+            border-radius: 5px;
+            border: 1px solid rgb(163, 163, 163);
+            outline: none;
+        }
+
+        .loginBtn {
+            margin: 2rem 0 0.2rem;
+            padding: 0.5rem 0;
+            background-color: rgb(7, 189, 135);
+            border: 1px solid rgb(7, 189, 135);
+            font-weight: 600;
+            color: white;
+            letter-spacing: 2px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .loginBtn:hover {
+            background-color: rgb(13, 119, 87);
+            border: 1px solid rgb(13, 119, 87);
+            transition: 0.7s;
+            box-shadow: 0px 0px 15px 3px rgb(7, 189, 135);
+        }
+
+        .loginPTag {
+            text-align: center;
+
+            a {
+                text-decoration: none;
+                color: rgb(72, 124, 157);
+                font-weight: 600;
+                letter-spacing: 1px;
+            }
+
+            a:hover {
+                color: rgb(55, 87, 107);
+                transition: 0.7s;
+            }
+        }
+    }
+}
+
+@media (max-width : 767px) {
+    .loginMain {
+        margin: 0;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        width: 85%;
+        min-width: 85%;
+        box-shadow: 0px 0px 15px 5px rgb(214, 214, 214);
+        border-radius: 20px;
+
+        .loginImage {
+            display: none;
+            visibility: hidden;
+        }
+
+        .loginForm {
+            width: 100%;
+
+            .loginHeading {
+                color: white;
+                text-shadow:
+                    1px 1px 2px rgb(1, 189, 135),
+                    0 0 1em rgb(1, 189, 135),
+                    0 0 0.2em rgb(1, 189, 135);
+                font-size: 40px;
+                letter-spacing: 2px;
+            }
+
+            label {
+                font-size: 20px;
+            }
+
+            input {
+                height: 2.5rem;
+                font-size: 16px;
+            }
+
+            .loginBtn {
+                font-size: 20px;
+            }
+
+            .loginPTag {
+                a {
+                    font-size: 19px;
+                }
+            }
+        }
+    }
+}
