@@ -95,7 +95,9 @@
                 color: rgb(13, 119, 87);
             }
             .notList{
-                height: 350px;
+                height: fit-content;
+                min-width: fit-content;
+                max-height: 350px;
                 overflow: auto;
                 box-shadow: 7px 13px 20px -8px rgb(216, 216, 216);
 
@@ -113,6 +115,24 @@
                     box-shadow: 0px 0px 10px 4px rgb(184, 184, 184);
                     transition: 0.7s;
                 }
+
+                .notDetails{
+                    display: grid;
+                    text-align: left;
+                    .userDetails{
+                        color: gray;
+                        font-size: 14px;
+    
+                        .operation{
+                            color: rgb(13, 119, 87);
+                        }
+                    }
+                    .notName{
+                        color: black;
+                        font-size: 18px;
+                    }
+                }
+                
             }
             .notCan{
                 background-color: gray;

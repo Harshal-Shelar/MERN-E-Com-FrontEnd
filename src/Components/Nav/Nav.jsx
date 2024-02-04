@@ -13,7 +13,7 @@ const Nav = () => {
 
   useEffect(() => {
     getNotificationCount();
-  },[notCount])
+  }, [notCount])
 
   const openNotification = () => {
     setNotPopup(true);
@@ -21,13 +21,14 @@ const Nav = () => {
   }
 
   const getNotificationCount = async () => {
-    let result = await fetch('http://localhost:5000/notification', {
+    let result = await fetch('http://localhost:5000/products', {
       method: "Get",
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
     });
     result = await result.json();
+    console.log("all result data :- ", result);
     var count = JSON.stringify(result.length);
     setNotCount(count)
     setNotification(result)
@@ -55,20 +56,20 @@ const Nav = () => {
               <img className='respProfileImg' src={profileImg} alt='' />
               <span className="respHeading">MERN CRUD</span>
               {!sidebar ?
-                <i className='fa fa-chevron-left' onClick={()=>setSidebar(true)}></i> : <></>
+                <i className='fa fa-chevron-left' onClick={() => setSidebar(true)}></i> : <></>
               }
 
               {sidebar ?
-                <i className='fa fa-chevron-right' onClick={()=>setSidebar(false)}></i> : <></>
+                <i className='fa fa-chevron-right' onClick={() => setSidebar(false)}></i> : <></>
               }
             </div>
             {
               sidebar ?
                 <div className="respHeaderData">
-                  <ul className='respUl' onClick={()=>setSidebar(false)}>
+                  <ul className='respUl' onClick={() => setSidebar(false)}>
                     <li><Link to="/"> <i className='fa fa-server'></i> Product List</Link></li>
                     <li><Link to="/addProducts"> <i className='fa fa-user-plus'></i> Add Product</Link></li>
-                    <li onClick={()=>openNotification()}><Link to="/addProducts"> <i className='fa fa-bell-o'></i> {notCount} Notifications</Link></li>
+                    <li onClick={() => openNotification()}><Link to="/addProducts"> <i className='fa fa-bell-o'></i> {notCount} Notifications</Link></li>
                     <li><Link to="/profile"> <i className='fa fa-user-circle-o'></i> {JSON.parse(auth).name}</Link></li>
                   </ul>
                 </div> :
@@ -87,17 +88,20 @@ const Nav = () => {
                 <p className='notPopupHeading'>Notification List</p>
                 <div className="notList">
 
-                {
-                  notification.map((value, index) => {
-                    return (
-                      <div>
-                        <Link className='notificationMain' to={"/update/" + value._id} key={value._id} onClick={() => setNotPopup(false)}>
-                          <span className='notSpan' >{value.name}</span>
-                          <i className='fa fa-mail-forward' key={value}></i>
-                        </Link>
-                      </div>
-                    )
-                  })}
+                  {
+                    notification.map((value, index) => {
+                      return (
+                        <div>
+                          <Link className='notificationMain' to={"/update/" + value._id} key={value._id} onClick={() => setNotPopup(false)}>
+                            <div className="notDetails">
+                              <span className='notName' >{value.name}</span>
+                              <span className='userDetails'>Data <span className='operation'>Added</span> by Harshal Shelar</span>
+                            </div>
+                            <i className='fa fa-mail-forward' key={value}></i>
+                          </Link>
+                        </div>
+                      )
+                    })}
                 </div>
                 <button className='notCan' onClick={() => setNotPopup(false)}>Cancel</button>
               </div>

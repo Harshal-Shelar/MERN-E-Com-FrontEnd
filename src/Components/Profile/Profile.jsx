@@ -39,7 +39,7 @@ const Profile = () => {
         <h1 className='avatarName'>{name}</h1>
         <p>Email : <span>{email}</span> </p>
         <p>Education : <span>{education}</span> </p>
-        <p>Phone Number :<span>{phoneNumber}</span> </p>
+        <p>Phone Number : <span>{phoneNumber}</span> </p>
         <p>Address : <span>{address}</span></p>
         <div className='social'>
           <a href="#"><i className="fa fa-dribbble"></i></a>

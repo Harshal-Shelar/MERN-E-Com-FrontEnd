@@ -29,11 +29,12 @@ const Login = () => {
                 }
             });
             result = await result.json();
-            console.warn(result)
+            console.warn(result.user.name)
             if (result.auth) {
                 localStorage.setItem('user', JSON.stringify(result.user));
                 localStorage.setItem('token', JSON.stringify(result.auth));
-                navigate("/")
+                navigate("/");
+                // window.location.reload();
             } else {
                 alert("Please enter connect details")
             }

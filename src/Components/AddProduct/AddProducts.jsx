@@ -34,6 +34,7 @@ const AddProducts = () => {
         }
       });
       result = await result.json();
+      console.log("data added :- ", result);
       if (result) {
         setsuccessPopup(true);
         
