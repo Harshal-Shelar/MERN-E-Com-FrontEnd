@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import './Products.css';
+import React, { useEffect, useState } from 'react';
+import './Products.scss';
 import { Link } from 'react-router-dom';
 import trashIcon from '../../Assets/Images/trash.png'
 
@@ -76,17 +76,17 @@ const Products = () => {
       <div className="productList">
         <h3 className='productListHeading'>Product List</h3>
 
-        <input className="input-field" onChange={searchHandle} type="text" placeholder='Search Product...'></input>
+        <input onChange={searchHandle} type="text" placeholder='Search Product...' />
 
         <table className='mainTable'>
-          <thead className='tableHead'>
+          <thead>
             <tr>
-              <th className='tableText'>Sr. No.</th>
-              <th className='tableText'>Name</th>
-              <th className='tableText'>Price</th>
-              <th className='tableText'>Category</th>
-              <th className='tableText'>Company</th>
-              <th className='tableText'>Actions</th>
+              <th>Sr. No.</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Category</th>
+              <th>Company</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -121,7 +121,7 @@ const Products = () => {
               </div>
             </div >
           </div > :
-          <div></div>
+          <></>
       }
 
       {
@@ -134,9 +134,8 @@ const Products = () => {
               </div>
             </div >
           </div > :
-          <div></div>
+          <></>
       }
-
     </>
   )
 }

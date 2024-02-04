@@ -2,6 +2,7 @@
     color: red;
     font-size: 13px;
 }
+
 .overlay {
     position: fixed;
     top: 0;
@@ -39,7 +40,58 @@
                 margin: 1rem 0 0;
                 font-weight: 600;
                 letter-spacing: 1px;
+
+                .popupTitle {
+                    color: rgb(0, 123, 255);
+                }
             }
+
+            .popupBtns {
+                display: flex;
+                justify-content: center;
+                gap: 1rem;
+                padding-bottom: 0.5rem;
+
+                .popupCan {
+                    padding: 0.5rem 2rem;
+                    background-color: gray;
+                    border: 2px solid gray;
+                    color: rgb(255, 255, 255);
+                    align-items: center;
+                    border-radius: 6px;
+                }
+
+                .popupDel {
+                    padding: 0.5rem 2rem;
+                    background-color: rgb(207, 0, 0);
+                    border: 2px solid rgb(207, 0, 0);
+                    ;
+                    color: rgb(255, 255, 255);
+                    align-items: center;
+                    border-radius: 6px;
+                }
+
+                .popupDel:hover {
+                    background-color: black;
+                    box-shadow: 0px 0px 10px 3px red;
+                    border: 2px solid red;
+                }
+
+                .popupCan:hover {
+                    background-color: black;
+                    border: 2px solid gray;
+                    box-shadow: 0px 0px 10px 3px gray;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    .overlay {
+        .popup {
+            width: 80%;
         }
     }
 }
