@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import './Profile.css';
+import React, { useEffect, useState } from 'react';
+import './Profile.scss';
 import avatar from '../../Assets/Images/pro3Trans.png';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -35,19 +35,19 @@ const Profile = () => {
   return (
     <div className='mainProfile'>
       <div className="card">
-        <img className='avatarImg' src={avatar} alt="John" />
-          <h1 className='avatarName'>{name}</h1>
-          <p className="title">Email : <span className='profileData'>{email}</span> </p>
-          <p className="title">Education : <span className='profileData'>{education}</span> </p>
-          <p className="title">Phone Number :<span className='profileData'>{phoneNumber}</span> </p>
-          <p className="title">Address : <span className='profileData'>{address}</span></p>
-          <div className='social'>
-            <a className="socialHandle" href="#"><i className="fa fa-dribbble"></i></a>
-            <a className="socialHandle" href="#"><i className="fa fa-twitter"></i></a>
-            <a className="socialHandle" href="#"><i className="fa fa-linkedin"></i></a>
-            <a className="socialHandle" href="#"><i className="fa fa-facebook"></i></a>
-          </div>
-          <Link to='/signUp' onClick={logout}><button className='contactBtn'><i className='fa fa-power-off'></i>Logout</button></Link>
+        <img className='avatarImg' src={avatar} alt="" />
+        <h1 className='avatarName'>{name}</h1>
+        <p>Email : <span>{email}</span> </p>
+        <p>Education : <span>{education}</span> </p>
+        <p>Phone Number :<span>{phoneNumber}</span> </p>
+        <p>Address : <span>{address}</span></p>
+        <div className='social'>
+          <a href="#"><i className="fa fa-dribbble"></i></a>
+          <a href="#"><i className="fa fa-twitter"></i></a>
+          <a href="#"><i className="fa fa-linkedin"></i></a>
+          <a href="#"><i className="fa fa-facebook"></i></a>
+        </div>
+        <Link to='/signUp' onClick={logout}><button className='contactBtn'><i className='fa fa-power-off'></i>Logout</button></Link>
       </div>
     </div>
   )
