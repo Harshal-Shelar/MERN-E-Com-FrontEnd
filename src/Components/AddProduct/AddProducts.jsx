@@ -38,7 +38,7 @@ const AddProducts = () => {
 
       if (result) {
         setsuccessPopup(true);
-        var operation = "Data Added";
+        var operation = "Product Added";
 
         setTimeout(() => {
           navigate('/')
@@ -97,7 +97,7 @@ const AddProducts = () => {
             <div className="popup">
               <div className="content">
                 <img className='rightIcon' src={rightIcon} alt="" />
-                <p className='popupHeading'>Data Added Successfully</p>
+                <p className='popupHeading'>Product Added Successfully</p>
               </div>
             </div >
           </div > :

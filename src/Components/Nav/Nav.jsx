@@ -28,6 +28,7 @@ const Nav = () => {
       }
     });
     result = await result.json();
+    console.log("not result :- ", result);
     setNotCount(result.length)
     setNotification(result)
   }
@@ -67,7 +68,7 @@ const Nav = () => {
                   <ul className='respUl' onClick={() => setSidebar(false)}>
                     <li><Link to="/"> <i className='fa fa-server'></i> Product List</Link></li>
                     <li><Link to="/addProducts"> <i className='fa fa-user-plus'></i> Add Product</Link></li>
-                    <li onClick={() => openNotification()}><Link to="/addProducts"> <i className='fa fa-bell-o'></i> {notCount} Notifications</Link></li>
+                    <li onClick={() => openNotification()}><i className='fa fa-bell-o'></i> {notCount} Notifications</li>
                     <li><Link to="/profile"> <i className='fa fa-user-circle-o'></i> {JSON.parse(auth).name}</Link></li>
                   </ul>
                 </div> :
@@ -86,23 +87,27 @@ const Nav = () => {
                 <p className='notPopupHeading'>Notification List</p>
                 <div className="notList">
                   {
+                    notification.length > 0 ?
                     notification.slice(0).reverse().map((value, index) => {
                       return (
                         <div className='notificationMain'>
                           <div className="notDetails">
-                            <span className='notName' >{value.name}</span>
+                            <span className='notName'>{value.name}</span>
                             <span className='userDetails'><span className='operation'>{value.operation}</span> by {value.userName}</span>
                           </div>
                           <Link to={"/update/" + value.productId} onClick={() => setNotPopup(false)}>
                             {
-                              value.operation == "Data Added" ?
-                                <i className='fa fa-mail-forward'></i> :
-                                <></>
+                              value.operation === "Product Added" &&
+                              <i className='fa fa-mail-forward'></i>
                             }
                           </Link>
                         </div>
                       )
-                    })}
+                    })
+                    :
+                    <span>No Data Found</span>
+                  }
+
                 </div>
                 <button className='notCan' onClick={() => setNotPopup(false)}>Cancel</button>
               </div>

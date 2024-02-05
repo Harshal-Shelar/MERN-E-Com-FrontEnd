@@ -128,8 +128,18 @@
                         }
                     }
                     .notName{
-                        color: black;
+                        color: rgb(64, 64, 64);
                         font-size: 18px;
+
+                        .nameNot{
+                            color: black;
+                            font-weight: 600;
+
+                            .operation{
+                                color: rgb(13, 119, 87);
+                                font-weight: normal;
+                            }
+                        }
                     }
                 }
                 

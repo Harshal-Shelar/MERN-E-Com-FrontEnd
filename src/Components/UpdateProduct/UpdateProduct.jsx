@@ -85,7 +85,7 @@ const UpdateProduct = () => {
             setProductId(result.productId);
 
             if (result) {
-                var operation = "Data Updated";
+                var operation = "Product Updated";
                 setupdatePopup(true)
                 setTimeout(() => {
                     setupdatePopup(false)
@@ -161,7 +161,7 @@ const UpdateProduct = () => {
                         <div className="popup">
                             <div className="content">
                                 <img className='rightIcon' src={rightIcon} alt="" />
-                                <p className='popupHeading'>Data deleted Successfully</p>
+                                <p className='popupHeading'>Product deleted Successfully</p>
                             </div>
                         </div >
                     </div > :
@@ -174,7 +174,7 @@ const UpdateProduct = () => {
                         <div className="popup">
                             <div className="content">
                                 <img className='rightIcon' src={updateIcon} alt="" />
-                                <p className='popupHeading'>Data Updated Successfully</p>
+                                <p className='popupHeading'>Product Updated Successfully</p>
                             </div>
                         </div >
                     </div > :

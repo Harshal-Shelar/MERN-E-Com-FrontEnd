@@ -46,7 +46,7 @@ const Products = () => {
     result = await result.json();
 
     if (result.acknowledged) {
-      var operation = "Data Deleted";
+      var operation = "Product Deleted";
       var name = getName;
       setPopup(false);
       getProducts();
@@ -151,7 +151,7 @@ const Products = () => {
             <div className="popup">
               <div className="content">
                 <img className='rightIcon' src={rightIcon} alt="" />
-                <p className='popupHeading'>Data deleted Successfully</p>
+                <p className='popupHeading'>Product deleted Successfully</p>
               </div>
             </div >
           </div > :
