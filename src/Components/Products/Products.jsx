@@ -12,6 +12,8 @@ const Products = () => {
   const [getName, setName] = useState();
   const [successPopup, setsuccessPopup] = useState();
 
+  
+
   useEffect(() => {
     getProducts()
   }, []);
@@ -24,12 +26,14 @@ const Products = () => {
     });
     result = await result.json();
     setProducts(result);
+    
   }
 
   const getProductId = (id, name) => {
     setDeleteId(id);
     setPopup(true);
-    setName(name)
+    setName(name);
+    
   }
 
   const deleteProduct = async (deleteId) => {
@@ -40,9 +44,10 @@ const Products = () => {
       }
     });
     result = await result.json();
-    console.log("delete :- ", result);
 
     if (result.acknowledged) {
+      var operation = "Data Deleted";
+      var name = getName;
       setPopup(false);
       getProducts();
       setsuccessPopup(true);
@@ -52,6 +57,19 @@ const Products = () => {
       }, 2000);
 
     }
+    
+    const userName = JSON.parse(localStorage.getItem('user')).name;
+
+    let notResult = await fetch("http://localhost:5000/add-notification", {
+      method: "post",
+      body: JSON.stringify({ userName, name, operation }),
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+      }
+    });
+
+    notResult = await notResult.json();
   }
 
   const searchHandle = async (event) => {

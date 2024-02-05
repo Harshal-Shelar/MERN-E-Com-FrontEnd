@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-// import './UpdateProduct.css';
 import './UpdateProduct.scss';
 import updateProductBack from '../../Assets/Images/editProductBack.png';
 import { useParams, useNavigate } from 'react-router-dom';
@@ -17,6 +16,7 @@ const UpdateProduct = () => {
     const [popup, setPopup] = useState();
     const [successPopup, setsuccessPopup] = useState();
     const [updatePopup, setupdatePopup] = useState();
+    const [productId, setProductId] = useState();
 
     const params = useParams();
 
@@ -24,7 +24,7 @@ const UpdateProduct = () => {
 
     useEffect(() => {
         getProductDetails();
-    },[])
+    }, [])
 
     const getUserId = (id, name) => {
         setPopup(true);
@@ -37,7 +37,7 @@ const UpdateProduct = () => {
             }
         });
         result = await result.json();
-        console.log("update product :- ",JSON.stringify(result));
+
         setName(result.name);
         setPrice(result.price);
         setCategory(result.category);
@@ -82,15 +82,29 @@ const UpdateProduct = () => {
                 }
             });
             result = await result.json();
-            console.log("update result :- ",result);
-            console.log("update arrLen :- ",result.arrLen );
+            setProductId(result.productId);
+
             if (result) {
+                var operation = "Data Updated";
                 setupdatePopup(true)
                 setTimeout(() => {
                     setupdatePopup(false)
                     navigate('/');
                 }, 2000);
             }
+
+            const userName = JSON.parse(localStorage.getItem('user')).name;
+
+            let notResult = await fetch("http://localhost:5000/add-notification", {
+                method: "post",
+                body: JSON.stringify({ userName, name, operation, productId }),
+                headers: {
+                    'Content-Type': 'application/json',
+                    authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+                }
+            });
+
+            notResult = await notResult.json();
         }
     }
 
@@ -129,7 +143,7 @@ const UpdateProduct = () => {
                     <div className="overlay">
                         <div className="popup">
                             <div className="content">
-                            <img className='rightIcon' src={trashIcon} alt="" />
+                                <img className='rightIcon' src={trashIcon} alt="" />
                                 <p className='popupHeading'>You want to delete the record of {name} ?</p>
                                 <div className="popupBtns">
                                     <button className='popupCan' onClick={() => setPopup(false)}>Cancel</button>

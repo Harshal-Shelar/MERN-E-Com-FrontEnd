@@ -34,15 +34,30 @@ const AddProducts = () => {
         }
       });
       result = await result.json();
-      console.log("data added :- ", result);
+      var productId = result.result._id;
+
       if (result) {
         setsuccessPopup(true);
-        
+        var operation = "Data Added";
+
         setTimeout(() => {
           navigate('/')
           setsuccessPopup(false);
         }, 2000);
       }
+
+      const userName = JSON.parse(localStorage.getItem('user')).name;
+
+      let notResult = await fetch("http://localhost:5000/add-notification", {
+        method: "post",
+        body: JSON.stringify({ userName, name, operation, productId }),
+        headers: {
+          'Content-Type': 'application/json',
+          authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+        }
+      });
+
+      notResult = await notResult.json();
     }
   }
 

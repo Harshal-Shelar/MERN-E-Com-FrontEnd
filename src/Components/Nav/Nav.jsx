@@ -13,7 +13,7 @@ const Nav = () => {
 
   useEffect(() => {
     getNotificationCount();
-  }, [notCount])
+  },[])
 
   const openNotification = () => {
     setNotPopup(true);
@@ -21,16 +21,14 @@ const Nav = () => {
   }
 
   const getNotificationCount = async () => {
-    let result = await fetch('http://localhost:5000/products', {
+    let result = await fetch('http://localhost:5000/notification', {
       method: "Get",
       headers: {
         authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
       }
     });
     result = await result.json();
-    console.log("all result data :- ", result);
-    var count = JSON.stringify(result.length);
-    setNotCount(count)
+    setNotCount(result.length)
     setNotification(result)
   }
 
@@ -87,17 +85,20 @@ const Nav = () => {
               <div className="content">
                 <p className='notPopupHeading'>Notification List</p>
                 <div className="notList">
-
                   {
-                    notification.map((value, index) => {
+                    notification.slice(0).reverse().map((value, index) => {
                       return (
                         <div>
-                          <Link className='notificationMain' to={"/update/" + value._id} key={value._id} onClick={() => setNotPopup(false)}>
+                          <Link className='notificationMain' to={"/update/" + value.productId} key={value._id} onClick={() => setNotPopup(false)}>
                             <div className="notDetails">
                               <span className='notName' >{value.name}</span>
-                              <span className='userDetails'>Data <span className='operation'>Added</span> by Harshal Shelar</span>
+                              <span className='userDetails'><span className='operation'>{value.operation}</span> by {value.userName}</span>
                             </div>
-                            <i className='fa fa-mail-forward' key={value}></i>
+                            {
+                              value.operation != "Data Deleted" ?
+                              <i className='fa fa-mail-forward'></i> : 
+                            <></>
+                            }
                           </Link>
                         </div>
                       )
