@@ -13,7 +13,7 @@ const Nav = () => {
 
   useEffect(() => {
     getNotificationCount();
-  },[])
+  }, [])
 
   const openNotification = () => {
     setNotPopup(true);
@@ -88,16 +88,16 @@ const Nav = () => {
                   {
                     notification.slice(0).reverse().map((value, index) => {
                       return (
-                        <div>
-                          <Link className='notificationMain' to={"/update/" + value.productId} key={value._id} onClick={() => setNotPopup(false)}>
-                            <div className="notDetails">
-                              <span className='notName' >{value.name}</span>
-                              <span className='userDetails'><span className='operation'>{value.operation}</span> by {value.userName}</span>
-                            </div>
+                        <div className='notificationMain'>
+                          <div className="notDetails">
+                            <span className='notName' >{value.name}</span>
+                            <span className='userDetails'><span className='operation'>{value.operation}</span> by {value.userName}</span>
+                          </div>
+                          <Link to={"/update/" + value.productId} onClick={() => setNotPopup(false)}>
                             {
-                              value.operation != "Data Deleted" ?
-                              <i className='fa fa-mail-forward'></i> : 
-                            <></>
+                              value.operation == "Data Added" ?
+                                <i className='fa fa-mail-forward'></i> :
+                                <></>
                             }
                           </Link>
                         </div>
