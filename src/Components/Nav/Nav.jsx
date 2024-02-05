@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Nav.scss';
+import { FaBarsStaggered } from "react-icons/fa6";
+import { HiPlus } from "react-icons/hi";
 import profileImg from '../../Assets/Images/pro3Trans.png';
-
 
 const Nav = () => {
   const auth = localStorage.getItem("user");
@@ -55,11 +56,11 @@ const Nav = () => {
               <img className='respProfileImg' src={profileImg} alt='' />
               <span className="respHeading">MERN CRUD</span>
               {!sidebar ?
-                <i className='fa fa-chevron-left' onClick={() => setSidebar(true)}></i> : <></>
+                <FaBarsStaggered className='icons' onClick={() => setSidebar(true)} /> : <></>
               }
 
               {sidebar ?
-                <i className='fa fa-chevron-right' onClick={() => setSidebar(false)}></i> : <></>
+                <HiPlus className='icons plusIcon' onClick={() => setSidebar(false)} /> : <></>
               }
             </div>
             {
@@ -88,24 +89,24 @@ const Nav = () => {
                 <div className="notList">
                   {
                     notification.length > 0 ?
-                    notification.slice(0).reverse().map((value, index) => {
-                      return (
-                        <div className='notificationMain'>
-                          <div className="notDetails">
-                            <span className='notName'>{value.name}</span>
-                            <span className='userDetails'><span className='operation'>{value.operation}</span> by {value.userName}</span>
+                      notification.slice(0).reverse().map((value, index) => {
+                        return (
+                          <div className='notificationMain'>
+                            <div className="notDetails">
+                              <span className='notName'>{value.name}</span>
+                              <span className='userDetails'><span className='operation'>{value.operation}</span> by {value.userName}</span>
+                            </div>
+                            <Link to={"/update/" + value.productId} onClick={() => setNotPopup(false)}>
+                              {
+                                value.operation === "Product Added" &&
+                                <i className='fa fa-mail-forward'></i>
+                              }
+                            </Link>
                           </div>
-                          <Link to={"/update/" + value.productId} onClick={() => setNotPopup(false)}>
-                            {
-                              value.operation === "Product Added" &&
-                              <i className='fa fa-mail-forward'></i>
-                            }
-                          </Link>
-                        </div>
-                      )
-                    })
-                    :
-                    <span>No Data Found</span>
+                        )
+                      })
+                      :
+                      <span>No Data Found</span>
                   }
 
                 </div>
