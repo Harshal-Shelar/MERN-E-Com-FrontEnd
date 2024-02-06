@@ -43,7 +43,7 @@
             font-weight: 500;
             color: black;
             letter-spacing: 1px;
-            font-weight: 600;
+            font-weight: 500;
         }
 
         input {
@@ -122,9 +122,9 @@
 }
 @media (max-width : 767px) {
     .updateFormMain {
-        width: 80%;
+        width: 90%;
         min-width: 80%;
-        margin: 1rem auto 0;
+        margin: 1rem auto 4rem;
 
         .image {
             display: none;
