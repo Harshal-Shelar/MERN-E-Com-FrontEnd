@@ -110,7 +110,16 @@
         }
     }
 }
-
+@media (min-width : 550px) {
+    .updateFormMain{
+        .mainForm{
+            .updateBtns{
+                display: flex !important;
+                align-items: end !important;
+            }
+        }
+    }
+}
 @media (max-width : 767px) {
     .updateFormMain {
         width: 80%;
