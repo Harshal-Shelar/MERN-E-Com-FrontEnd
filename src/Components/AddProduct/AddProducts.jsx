@@ -3,6 +3,7 @@ import './AddProducts.scss';
 import addProductBack from '../../Assets/Images/addProductBack.png';
 import { useNavigate } from 'react-router-dom';
 import rightIcon from '../../Assets/Images/right.png'
+import Popup from '../Popup';
 
 const AddProducts = () => {
 
@@ -93,15 +94,8 @@ const AddProducts = () => {
       </div>
       {
         successPopup ?
-          <div className="overlay">
-            <div className="popup">
-              <div className="content">
-                <img className='rightIcon' src={rightIcon} alt="" />
-                <p className='popupHeading'>Product Added Successfully</p>
-              </div>
-            </div >
-          </div > :
-          <div></div>
+          <Popup img="added" title="Product Added Successfully."/> :
+          <></>
       }
 
     </>

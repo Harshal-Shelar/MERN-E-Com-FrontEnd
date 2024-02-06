@@ -3,6 +3,7 @@ import './Products.scss';
 import { Link } from 'react-router-dom';
 import trashIcon from '../../Assets/Images/trash.png'
 import rightIcon from '../../Assets/Images/right.png'
+import Popup from '../Popup';
 
 const Products = () => {
 
@@ -12,7 +13,7 @@ const Products = () => {
   const [getName, setName] = useState();
   const [successPopup, setsuccessPopup] = useState();
 
-  
+
 
   useEffect(() => {
     getProducts()
@@ -26,14 +27,14 @@ const Products = () => {
     });
     result = await result.json();
     setProducts(result);
-    
+
   }
 
   const getProductId = (id, name) => {
     setDeleteId(id);
     setPopup(true);
     setName(name);
-    
+
   }
 
   const deleteProduct = async (deleteId) => {
@@ -57,7 +58,7 @@ const Products = () => {
       }, 2000);
 
     }
-    
+
     const userName = JSON.parse(localStorage.getItem('user')).name;
 
     let notResult = await fetch("http://localhost:5000/add-notification", {
@@ -90,6 +91,10 @@ const Products = () => {
 
   }
 
+  const closePopup = ()=>{
+    window.history.back()
+  }
+
   return (
     <>
       <div className="productList">
@@ -110,21 +115,33 @@ const Products = () => {
             </tr>
           </thead>
           <tbody>
-            {products.map((value, key) => {
-              return (
-                <tr key={key}>
-                  <td>{key + 1}</td>
-                  <td>{value.name}</td>
-                  <td>{value.price}</td>
-                  <td>{value.category}</td>
-                  <td>{value.company}</td>
-                  <td className='actionBtns'>
-                    <button className='updateBtn'><Link to={"/update/" + value._id} ><i className="fa fa-edit"></i>Edit</Link></button>
-                    <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}><i className="fa fa-trash-o"></i>Delete</button>
-                  </td>
-                </tr>
-              );
-            })}
+            {products.length > 0 ?
+              products.map((value, key) => {
+                return (
+                  <tr key={key}>
+                    <td>{key + 1}</td>
+                    <td>{value.name}</td>
+                    <td>{value.price}</td>
+                    <td>{value.category}</td>
+                    <td>{value.company}</td>
+                    <td className='actionBtns'>
+                      <button className='updateBtn'><Link to={"/update/" + value._id} ><i className="fa fa-edit"></i>Edit</Link></button>
+                      <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}><i className="fa fa-trash-o"></i>Delete</button>
+                    </td>
+                  </tr>
+                );
+              }) :
+              <div className="overlay">
+                <div className="popup">
+                  <div className="content">
+                    <p className='popupHeading'>No Products Found</p>
+                    <div className="popupBtns">
+                      <button className='popupCan'><Link to={"/addProducts"} >Add Products</Link></button>
+                    </div>
+                  </div>
+                </div >
+              </div >
+            }
           </tbody>
         </table>
       </div>
@@ -147,14 +164,7 @@ const Products = () => {
 
       {
         successPopup ?
-          <div className="overlay">
-            <div className="popup">
-              <div className="content">
-                <img className='rightIcon' src={rightIcon} alt="" />
-                <p className='popupHeading'>Product deleted Successfully</p>
-              </div>
-            </div >
-          </div > :
+          <Popup img="deleted" title="Product Deleted Successfully"/> :
           <></>
       }
     </>

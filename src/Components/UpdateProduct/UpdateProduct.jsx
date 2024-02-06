@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import trashIcon from '../../Assets/Images/trash.png'
 import updateIcon from '../../Assets/Images/updateIcon.png'
 import rightIcon from '../../Assets/Images/right.png'
+import Popup from '../Popup';
 
 const UpdateProduct = () => {
     const [name, setName] = useState('');
@@ -157,27 +158,13 @@ const UpdateProduct = () => {
 
             {
                 successPopup ?
-                    <div className="overlay">
-                        <div className="popup">
-                            <div className="content">
-                                <img className='rightIcon' src={rightIcon} alt="" />
-                                <p className='popupHeading'>Product deleted Successfully</p>
-                            </div>
-                        </div >
-                    </div > :
+                    <Popup img="deleted" title="Product Deleted Successfully" /> :
                     <></>
             }
 
             {
                 updatePopup ?
-                    <div className="overlay">
-                        <div className="popup">
-                            <div className="content">
-                                <img className='rightIcon' src={updateIcon} alt="" />
-                                <p className='popupHeading'>Product Updated Successfully</p>
-                            </div>
-                        </div >
-                    </div > :
+                    <Popup img="updated" title="Product Updated Successfully" /> :
                     <></>
             }
         </>

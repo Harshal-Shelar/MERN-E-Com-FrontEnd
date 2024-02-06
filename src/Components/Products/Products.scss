@@ -1,5 +1,5 @@
 .productList {
-    margin: 2rem auto;
+    margin: 2rem auto 6rem;
     width: 800px;
 
     .productListHeading {
@@ -40,7 +40,7 @@
         thead {
             text-align: left;
             font-weight: bolder;
-            border-bottom: 2px solid black;
+            border-top: 2px solid black;
             text-wrap: nowrap;
 
             tr {
@@ -55,11 +55,12 @@
         tbody {
             tr {
                 td {
+                    border-top: 1px solid #cbcbcb;
                     width: 150px;
                     max-width: fit-content;
                     text-wrap: nowrap;
                     padding: 0.8rem 0.8rem 0.8rem 0;
-                    border-bottom: 1px solid #cbcbcb
+                    
                 }
 
                 .actionBtns {
@@ -90,6 +91,8 @@
                         width: 5rem;
                         height: 2.5rem;
                         cursor: pointer;
+                        display: flex;
+                        align-items: center;
 
                         i {
                             margin-right: 0.5rem;
@@ -111,6 +114,12 @@
                         transition: 0.5s;
                     }
                 }
+            }
+            .noProducts{
+                text-align: center;
+                font-size: 40px;
+                letter-spacing: 2px;
+                color: red;
             }
         }
     }
