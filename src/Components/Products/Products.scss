@@ -1,6 +1,6 @@
 .productList {
     margin: 2rem auto 6rem;
-    width: 800px;
+    width: 900px;
 
     .productListHeading {
         font-size: 50px;
@@ -9,7 +9,7 @@
         letter-spacing: 3px;
         margin-block-start: 0rem;
         margin-block-end: 1rem;
-        background: linear-gradient(50deg, red 0%, rgb(0, 116, 210) 80%);
+        background: linear-gradient(150deg, red 0%, rgb(0, 116, 210) 80%);
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
         background-clip: hidden;
@@ -18,64 +18,84 @@
     }
 
     input {
-        width: -webkit-fill-available;
+        width: 90%;
+        transform: translate(4%, 10%);
         padding: 10px 3px 10px 15px;
         border-radius: 10px;
         border: 1px solid gray;
     }
 
-    .mainTable {
-        border: 1px solid rgb(224, 224, 224);
-        border-radius: 15px;
-        margin-top: 1rem;
-        overflow: auto;
-        background-color: rgb(240, 240, 240);
-        height: fit-content;
-        max-height: 400px;
-        overflow: auto;
-        width: 100%;
-        box-shadow: 7px 7px 15px -5px rgb(167, 167, 167);
-        padding: 1rem 2rem;
+    .tableUl {
+        padding-inline-start: 0px;
 
-        thead {
-            text-align: left;
-            font-weight: bolder;
-            border-top: 2px solid black;
-            text-wrap: nowrap;
+        .tableLi {
+            list-style-type: none;
+            text-align: center;
 
-            tr {
-                th {
-                    padding: 0 1rem 0 0;
-                    font-size: 18px;
+            .ulCard {
+                border: 1px solid rgb(235, 235, 235);
+                border-radius: 15px;
+                padding: 10px 15px;
+                min-width: 220px;
+                max-width: 250px;
+                width: fit-content;
+                margin: 10px;
+                display: inline-block;
+                cursor: pointer;
+                box-shadow: 7px 7px 10px 0px rgb(235, 235, 235);
+
+                .liName{
+                    color: rgb(13, 119, 87);
+                }
+                h2 {
+                    text-align: center;
+                }
+
+                h2,
+                h3 {
                     letter-spacing: 1px;
                 }
-            }
-        }
 
-        tbody {
-            tr {
-                td {
-                    border-top: 1px solid #cbcbcb;
-                    width: 150px;
-                    max-width: fit-content;
-                    text-wrap: nowrap;
-                    padding: 0.8rem 0.8rem 0.8rem 0;
-                    
+                h3 {
+                    text-align: left;
+                    margin: 10px 0;
+                    display: flex;
+                    gap: 1rem;
+                    width: 100%;
+
+                    .title {
+                        width: fit-content;
+                        text-wrap: nowrap;
+
+                        i {
+                            text-align: center;
+                            align-items: center;
+                        }
+                    }
+
+                    .value {
+                        width: 80%;
+                    }
                 }
 
-                .actionBtns {
+                .ulBtns {
                     display: flex;
-                    gap: 0.5rem;
-                    padding: 0.6rem 0;
+                    justify-content: space-between;
+                    margin-top: 1rem;
 
                     .updateBtn {
                         border: none;
                         background-color: transparent;
                         font-weight: bold;
+                        align-items: center;
 
                         a {
                             color: rgb(0, 89, 162);
                             text-decoration: none;
+                        }
+
+                        a:hover {
+                            color: antiquewhite;
                         }
                     }
 
@@ -115,11 +135,44 @@
                     }
                 }
             }
-            .noProducts{
-                text-align: center;
-                font-size: 40px;
-                letter-spacing: 2px;
-                color: red;
+
+            .ulCard:hover {
+                background-color: rgb(13, 119, 87);
+                transition: 0.7s;
+                box-shadow: 0px 0px 10px 3px gray;
+                border: 1px solid rgb(13, 119, 87);
+
+                .liName{
+                    color: rgb(23, 240, 175);
+                }
+                h2,
+                h3 {
+                    color: white;
+                    transition: 0.7s;
+                }
+
+                .ulBtns {
+                    .updateBtn {
+                        a {
+                            color: rgb(23, 240, 175);
+                            transition: 0.7s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width : 420px) {
+    .productList {
+        .tableUl {
+            .tableLi {
+                .ulCard {
+                    width: 87%;
+                    min-width: 87%;
+                    max-width: 87%;
+                }
             }
         }
     }
@@ -128,13 +181,14 @@
 @media (max-width : 800px) {
     .productList {
         overflow: auto;
-        width: 90%;
+        width: 100%;
 
         input {
-            width: -webkit-fill-available;
-            margin: 8rem 1rem 0 0;
+            width: 90%;
+            margin: 9rem auto 0 auto;
             position: absolute;
-            max-width: 87%;
+            max-width: 90%;
+            transform: translate(3%, -50%);
         }
 
         .productListHeading {
@@ -145,11 +199,8 @@
             margin-top: 5rem;
         }
 
-        .mainTable {
-            overflow-y: auto;
-            padding: 1rem 2rem 1rem 2rem;
+        .tableUl {
             margin-top: 12rem;
-            position: relative;
         }
     }
 }

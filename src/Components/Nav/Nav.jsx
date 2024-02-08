@@ -29,7 +29,6 @@ const Nav = () => {
       }
     });
     result = await result.json();
-    console.log("not result :- ", result);
     setNotCount(result.length)
     setNotification(result)
   }

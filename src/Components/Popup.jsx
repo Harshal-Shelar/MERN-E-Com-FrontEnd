@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import rightIcon from '../Assets/Images/right.png';
 import updateIcon from '../Assets/Images/updateIcon.png';
 

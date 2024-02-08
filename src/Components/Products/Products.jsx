@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './Products.scss';
 import { Link } from 'react-router-dom';
-import trashIcon from '../../Assets/Images/trash.png'
-import rightIcon from '../../Assets/Images/right.png'
+import trashIcon from '../../Assets/Images/trash.png';
 import Popup from '../Popup';
+import { TbCategory } from "react-icons/tb";
+import { LuBuilding2 } from "react-icons/lu";
+import { IoPricetagOutline } from "react-icons/io5";
 
 const Products = () => {
 
@@ -12,8 +14,6 @@ const Products = () => {
   const [popup, setPopup] = useState();
   const [getName, setName] = useState();
   const [successPopup, setsuccessPopup] = useState();
-
-
 
   useEffect(() => {
     getProducts()
@@ -91,10 +91,6 @@ const Products = () => {
 
   }
 
-  const closePopup = ()=>{
-    window.history.back()
-  }
-
   return (
     <>
       <div className="productList">
@@ -102,48 +98,27 @@ const Products = () => {
 
         <input onChange={searchHandle} type="text" placeholder='Search Product...' />
 
-        <table className='mainTable'>
-
-          <thead>
-            <tr>
-              <th>Sr. No.</th>
-              <th>Name</th>
-              <th>Price</th>
-              <th>Category</th>
-              <th>Company</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.length > 0 ?
-              products.map((value, key) => {
-                return (
-                  <tr key={key}>
-                    <td>{key + 1}</td>
-                    <td>{value.name}</td>
-                    <td>{value.price}</td>
-                    <td>{value.category}</td>
-                    <td>{value.company}</td>
-                    <td className='actionBtns'>
-                      <button className='updateBtn'><Link to={"/update/" + value._id} ><i className="fa fa-edit"></i>Edit</Link></button>
-                      <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}><i className="fa fa-trash-o"></i>Delete</button>
-                    </td>
-                  </tr>
-                );
-              }) :
-              <div className="overlay">
-                <div className="popup">
-                  <div className="content">
-                    <p className='popupHeading'>No Products Found</p>
-                    <div className="popupBtns">
-                      <button className='popupCan'><Link to={"/addProducts"} >Add Products</Link></button>
+        <ul className='tableUl'>
+          <li className='tableLi'>
+            {
+              products.length > 0 &&
+                products.map((value, key) => {
+                  return (
+                    <div className='ulCard' key={value._id}>
+                      <h2 className='liName'>{value.name}</h2>
+                      <h3><IoPricetagOutline /> : <span className='value'>{value.price}/-</span></h3>
+                      <h3><TbCategory /> : <span className='value'>{value.category}</span></h3>
+                      <h3><LuBuilding2 /> : <span className='value'>{value.company}</span></h3>
+                      <div className="ulBtns">
+                        <button className='updateBtn'><Link to={"/update/" + value._id} ><i className="fa fa-edit"></i>Edit</Link></button>
+                        <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}><i className="fa fa-trash-o"></i>Delete</button>
+                      </div>
                     </div>
-                  </div>
-                </div >
-              </div >
+                  )
+                })
             }
-          </tbody>
-        </table>
+          </li>
+        </ul>
       </div>
       {
         popup ?
@@ -164,7 +139,7 @@ const Products = () => {
 
       {
         successPopup ?
-          <Popup img="deleted" title="Product Deleted Successfully"/> :
+          <Popup img="deleted" title="Product Deleted Successfully" /> :
           <></>
       }
     </>
