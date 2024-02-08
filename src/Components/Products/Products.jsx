@@ -121,7 +121,7 @@ const Products = () => {
         </ul>
       </div>
       {
-        popup ?
+        popup &&
           <div className="overlay">
             <div className="popup">
               <div className="content">
@@ -133,14 +133,12 @@ const Products = () => {
                 </div>
               </div>
             </div >
-          </div > :
-          <></>
+          </div >
       }
 
       {
-        successPopup ?
-          <Popup img="deleted" title="Product Deleted Successfully" /> :
-          <></>
+        successPopup &&
+          <Popup img="deleted" title="Product Deleted Successfully" />
       }
     </>
   )

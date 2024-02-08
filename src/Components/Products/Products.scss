@@ -18,11 +18,16 @@
     }
 
     input {
-        width: 90%;
-        transform: translate(4%, 10%);
+        width: 87%;
+        transform: translate(6%, 10%);
         padding: 10px 3px 10px 15px;
         border-radius: 10px;
         border: 1px solid gray;
+    }
+
+    input:focus {
+        box-shadow: 0px 0px 15px 3px rgb(208, 208, 208);
+        transition: 0.9s;
     }
 
     .tableUl {
@@ -44,9 +49,10 @@
                 cursor: pointer;
                 box-shadow: 7px 7px 10px 0px rgb(235, 235, 235);
 
-                .liName{
+                .liName {
                     color: rgb(13, 119, 87);
                 }
+
                 h2 {
                     text-align: center;
                 }
@@ -142,9 +148,10 @@
                 box-shadow: 0px 0px 10px 3px gray;
                 border: 1px solid rgb(13, 119, 87);
 
-                .liName{
+                .liName {
                     color: rgb(23, 240, 175);
                 }
+
                 h2,
                 h3 {
                     color: white;
@@ -158,6 +165,11 @@
                             transition: 0.7s;
                         }
                     }
+
+                    .deleteBtn {
+                        color: rgb(23, 240, 175);
+                        transition: 0.7s;
+                    }
                 }
             }
         }
@@ -169,7 +181,7 @@
         .tableUl {
             .tableLi {
                 .ulCard {
-                    width: 87%;
+                    width: 87% !important;
                     min-width: 87%;
                     max-width: 87%;
                 }
@@ -201,6 +213,14 @@
 
         .tableUl {
             margin-top: 12rem;
+
+            .tableLi{
+                .ulCard{
+                    width: 40%;
+                    min-width: 40%;
+                    margin: 5px;
+                }
+            }
         }
     }
 }
