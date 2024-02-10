@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './Category.scss'
+import './Category.scss';
+import { LiaExternalLinkAltSolid } from "react-icons/lia";
+import { Link } from 'react-router-dom';
 
 const Category = () => {
     const [products, setProducts] = useState([]);
@@ -76,8 +78,6 @@ const Category = () => {
             });
             setPopup(true);
             setNewUserList(newUserList);
-            console.log(getNewUserList);
-            console.log(type.item, count);
         }
     }
 
@@ -111,7 +111,7 @@ const Category = () => {
                     </div>
                 </div>
             </div>
-            
+
             {popup &&
                 <div className="overlay">
                     <div className="popup">
@@ -125,6 +125,7 @@ const Category = () => {
                                         <th>Category</th>
                                         <th>Price</th>
                                         <th>Company</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -137,6 +138,9 @@ const Category = () => {
                                                     <td>{x.category}</td>
                                                     <td>{x.price}</td>
                                                     <td>{x.company}</td>
+                                                    <td className='catActionBtns'>
+                                                        <Link to={"/update/" + x._id} ><LiaExternalLinkAltSolid className='navigate' /></Link>
+                                                    </td>
                                                 </tr>
                                             )
                                         })
