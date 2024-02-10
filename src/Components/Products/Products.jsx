@@ -106,9 +106,9 @@ const Products = () => {
                   return (
                     <div className='ulCard' key={value._id}>
                       <h2 className='liName'>{value.name}</h2>
-                      <h3><IoPricetagOutline /> : <span className='value'>{value.price}/-</span></h3>
-                      <h3><TbCategory /> : <span className='value'>{value.category}</span></h3>
-                      <h3><LuBuilding2 /> : <span className='value'>{value.company}</span></h3>
+                      <h3><IoPricetagOutline className='cardIcon'/> : <span className='value'>{value.price}/-</span></h3>
+                      <h3><TbCategory className='cardIcon'/> : <span className='value'>{value.category}</span></h3>
+                      <h3><LuBuilding2 className='cardIcon'/> : <span className='value'>{value.company}</span></h3>
                       <div className="ulBtns">
                         <button className='updateBtn'><Link to={"/update/" + value._id} ><i className="fa fa-edit"></i>Edit</Link></button>
                         <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}><i className="fa fa-trash-o"></i>Delete</button>

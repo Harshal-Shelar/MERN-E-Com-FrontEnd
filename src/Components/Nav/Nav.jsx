@@ -54,12 +54,12 @@ const Nav = () => {
             <div className="respHeader">
               <img className='respProfileImg' src={profileImg} alt='' />
               <span className="respHeading">MERN CRUD</span>
-              {!sidebar ?
-                <FaBarsStaggered className='icons' onClick={() => setSidebar(true)} /> : <></>
+              {!sidebar &&
+                <FaBarsStaggered className='icons' onClick={() => setSidebar(true)} />
               }
 
-              {sidebar ?
-                <HiPlus className='icons plusIcon' onClick={() => setSidebar(false)} /> : <></>
+              {sidebar && 
+                <HiPlus className='icons plusIcon' onClick={() => setSidebar(false)} />
               }
             </div>
             {
