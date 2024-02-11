@@ -4,6 +4,7 @@ import './Nav.scss';
 import { FaBarsStaggered } from "react-icons/fa6";
 import { HiPlus } from "react-icons/hi";
 import profileImg from '../../Assets/Images/pro3Trans.png';
+import { useNavigate } from 'react-router-dom';
 
 const Nav = () => {
   const auth = localStorage.getItem("user");
@@ -11,12 +12,19 @@ const Nav = () => {
   const [notification, setNotification] = useState();
   const [notPopup, setNotPopup] = useState();
   const [notCount, setNotCount] = useState();
+  const [isAdmin, setIsAdmin] = useState();
 
   var userId;
+  var navigate = useNavigate();
 
   useEffect(() => {
     getNotificationCount();
-    userId = JSON.parse(localStorage.getItem('user')).name;
+    if(localStorage.getItem('user')){
+      userId = JSON.parse(localStorage.getItem('user')).name;
+    }else{
+      navigate('/login')
+    }
+    matchAdmin();
   }, [])
 
   const openNotification = () => {
@@ -37,6 +45,13 @@ const Nav = () => {
   }
 
 
+  const matchAdmin = () => {
+    let adminStr = 'Admin';
+    if (adminStr === userId) {
+      setIsAdmin(true)
+    }
+  }
+
   return (
     <>
       {
@@ -46,8 +61,8 @@ const Nav = () => {
               <div className="all-li">
                 <li className='logoOnly'><Link to="/">MERN</Link></li>
                 <li><Link to="/">Product List</Link></li>
-                { userId === 'Admin' &&
-                <li><Link to="/addProducts">Add Products</Link></li>
+                {isAdmin &&
+                  <li><Link to="/addProducts">Add Products</Link></li>
                 }
                 <li><Link to="/categories">Categories</Link></li>
               </div>
@@ -63,7 +78,7 @@ const Nav = () => {
                 <FaBarsStaggered className='icons' onClick={() => setSidebar(true)} />
               }
 
-              {sidebar && 
+              {sidebar &&
                 <HiPlus className='icons plusIcon' onClick={() => setSidebar(false)} />
               }
             </div>

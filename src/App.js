@@ -12,6 +12,7 @@ import Login from './Components/Login/Login.jsx';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct.jsx';
 import Category from './Components/Categories/Category.jsx';
 import AddToCart from './Components/AddToCart/AddToCart.jsx';
+import { useEffect } from 'react';
 
 function App() {
   return (
