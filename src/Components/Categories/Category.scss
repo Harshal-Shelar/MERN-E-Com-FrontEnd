@@ -11,7 +11,7 @@
         color: #770D2D;
     }
 
-    .totalName{
+    .totalName {
         text-align: center;
         margin-bottom: 0;
         letter-spacing: 1px;
@@ -19,30 +19,45 @@
     }
 
     .boxes {
-        display: flex;
-        justify-content: center;
+        display: grid;
         gap: 0;
+        width: 100%;
 
         .nameBox {
+            text-align: center;
             .nameUl {
                 margin-block-start: 2em;
                 margin-block-end: 0em;
                 padding-inline-start: 0px;
                 color: white;
+                display: inline-flex;
 
                 .nameLi {
                     list-style-type: none;
                     padding: 10px;
                     cursor: pointer;
-                    border-radius: 5px;
+                    border-radius: 50%;
                     font-weight: 600;
                     letter-spacing: 1.5px;
                     font-size: 20px;
+                    height: 10rem;
+                    width: 10rem;
+                    margin: 1rem;
                     background-color: #0D7757;
+                    align-items: center;
+                    box-shadow: 8px 8px 10px 2px rgb(159, 159, 159);
+
+                    span{
+                        top: 40%;
+                        position: relative;
+                        transform: translate(-50%, -50%);
+                    }
                 }
-                .nameLi:hover{
-                    background-color: #074734;
-                    transition: 0.5s;
+
+                .nameLi:hover {
+                    background-color: #000000;
+                    transition: 0.7s;
+                    box-shadow: none;
                 }
 
                 .numberBorder {
@@ -54,7 +69,8 @@
                     align-items: center;
                     text-align: center;
                 }
-                .numberBorder:hover{
+
+                .numberBorder:hover {
                     background-color: #560b22;
                 }
             }
@@ -63,7 +79,21 @@
 }
 
 @media (max-width : 767px) {
-    .categoryMain{
+    .categoryMain {
         width: 100%;
+    }
+}
+
+@media (max-width : 424px) {
+    .categoryMain{
+        .boxes{
+            .nameBox{
+                .nameUl{
+                    .nameLi{
+                        margin: 0.5rem;
+                    }
+                }
+            }
+        }
     }
 }

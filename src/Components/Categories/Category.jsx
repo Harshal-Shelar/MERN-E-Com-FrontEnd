@@ -10,7 +10,7 @@ const Category = () => {
     const [totalCount, setTotalCount] = useState();
     const [getNewUserList, setNewUserList] = useState([]);
     const [popup, setPopup] = useState();
-    const [categoryName, setCategoryName] = useState()
+    const [categoryName, setCategoryName] = useState();
 
     let valueArr = [];
     let countArr = [];
@@ -21,7 +21,7 @@ const Category = () => {
 
     useEffect(() => {
         getCategories();
-    }, []);
+    }, [totalCount]);
 
     const getCategories = async () => {
         usersList = await fetch('http://localhost:5000/category-list', {
@@ -31,11 +31,11 @@ const Category = () => {
         });
         usersList = await usersList.json();
         setProducts(usersList);
-        setTotalCount(products.length + 1);
+        setTotalCount(products.length);
 
         products.sort();
 
-        for (var i = 0; i < products.length; i++) {
+        for (var i = 0; i <= products.length; i++) {
             if (products[i] !== current) {
                 if (cnt > 0) {
                     valueArr.push(current);
@@ -50,6 +50,7 @@ const Category = () => {
             }
         }
         if (cnt > 0) {
+            return cnt;
         }
         catName.map(value => {
             return valueArr = [...valueArr, value];
@@ -58,6 +59,7 @@ const Category = () => {
             return countArr = [...countArr, x]
         });
     }
+
 
     const openUsersList = async (type) => {
         let count = 0;
@@ -81,6 +83,7 @@ const Category = () => {
         }
     }
 
+
     return (
         <>
             <div className="categoryMain">
@@ -89,29 +92,17 @@ const Category = () => {
                 <div className="boxes">
                     <div className='nameBox'>
                         {
-                            catCount.map((item, index) => {
-                                return (
-                                    <ul className='nameUl'>
-                                        <li className='nameLi numberBorder' key={index}>{item}</li>
-                                    </ul>
-                                )
-                            })
-                        }
-                    </div>
-                    <div className='nameBox'>
-                        {
                             catName.map((item, index) => {
                                 return (
-                                    <ul className='nameUl' onClick={() => openUsersList({ item })}>
-                                        <li className='nameLi' key={index}>{item}</li>
-                                    </ul>
+                                    <div className='nameUl' onClick={() => openUsersList({ item })}>
+                                        <div className='nameLi' key={index}><span>{item}</span></div>
+                                    </div>
                                 )
                             })
                         }
                     </div>
                 </div>
             </div>
-
             {popup &&
                 <div className="overlay">
                     <div className="popup">
