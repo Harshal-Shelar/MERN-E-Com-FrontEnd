@@ -135,6 +135,27 @@
                         transition: 0.5s;
                     }
                 }
+                .addToCartBtn{
+                    .addToCart{
+                        width: 100%;
+                        padding: 7px 0;
+                        cursor: pointer;
+                        background-color: rgb(13, 119, 87);
+                        color: white;
+                        border: 1px solid rgb(13, 119, 87);
+                        border-radius: 10px;
+                        font-size: 18px;
+                        font-weight: 600;
+                        letter-spacing: 1px;
+                    }
+                    .addToCart:hover{
+                        background-color: rgb(25, 178, 132);
+                        border: 1px solid rgb(25, 178, 132);
+                        transition: 0.7s;
+                        color: black;
+                        box-shadow: 0px 0px 10px 2px black;
+                    }
+                }
             }
 
             .ulCard:hover {

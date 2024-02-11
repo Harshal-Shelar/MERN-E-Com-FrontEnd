@@ -12,8 +12,11 @@ const Nav = () => {
   const [notPopup, setNotPopup] = useState();
   const [notCount, setNotCount] = useState();
 
+  var userId;
+
   useEffect(() => {
     getNotificationCount();
+    userId = JSON.parse(localStorage.getItem('user')).name;
   }, [])
 
   const openNotification = () => {
@@ -43,11 +46,13 @@ const Nav = () => {
               <div className="all-li">
                 <li className='logoOnly'><Link to="/">MERN</Link></li>
                 <li><Link to="/">Product List</Link></li>
+                { userId === 'Admin' &&
                 <li><Link to="/addProducts">Add Products</Link></li>
+                }
                 <li><Link to="/categories">Categories</Link></li>
               </div>
               <div className='loginLogout'>
-                <li><i className="fa fa-bell-o" onClick={openNotification}></i><span className='notificationCount'>{notCount}</span></li>
+                <li> <Link to="/cart"><i className="fa fa-cart-plus"></i><span className='notificationCount'>{notCount}</span></Link> </li>
                 <li><Link to="/profile"> <i className="fa fa-user-circle-o"></i> {JSON.parse(auth).name}</Link></li>
               </div>
             </ul>

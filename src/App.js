@@ -11,6 +11,7 @@ import PrivateComp from './Components/PrivateComp.jsx';
 import Login from './Components/Login/Login.jsx';
 import UpdateProduct from './Components/UpdateProduct/UpdateProduct.jsx';
 import Category from './Components/Categories/Category.jsx';
+import AddToCart from './Components/AddToCart/AddToCart.jsx';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path='/addProducts' element={<AddProducts />} />
             <Route path='/profile' element={<Profile />} />
             <Route path='/categories' element={<Category />} />
+            <Route path='/cart' element={<AddToCart />} />
             <Route path='/update/:id' element={<UpdateProduct />} />
           </Route>
           <Route path='/signUp' element={<SignUp />} />

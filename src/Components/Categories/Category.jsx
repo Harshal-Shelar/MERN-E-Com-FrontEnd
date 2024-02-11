@@ -83,11 +83,10 @@ const Category = () => {
         }
     }
 
-
     return (
         <>
             <div className="categoryMain">
-                <h2 className='heading'>Users Category wise</h2>
+                <h2 className='heading'>Products Category wise</h2>
                 <h3 className='totalName'>Total Products : {totalCount}</h3>
                 <div className="boxes">
                     <div className='nameBox'>
