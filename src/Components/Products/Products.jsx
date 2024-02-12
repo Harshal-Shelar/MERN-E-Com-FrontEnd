@@ -14,13 +14,28 @@ const Products = () => {
   const [popup, setPopup] = useState();
   const [getName, setName] = useState();
   const [successPopup, setsuccessPopup] = useState();
+  const [isAdmin, setIsAdmin] = useState();
+  const [cartCategory, setCartCategory] = useState();
+  const [cartName, setCartName] = useState();
+  const [cartCompany, setCartCompany] = useState();
 
   var userId;
+  var userName;
 
   useEffect(() => {
     getProducts();
     userId = JSON.parse(localStorage.getItem('user'))._id;
+    matchAdmin();
   }, []);
+
+  const matchAdmin = () => {
+    let adminStr = 'Admin';
+    if (adminStr === userId) {
+      setIsAdmin(false)
+    } else {
+      setIsAdmin(true);
+    }
+  }
 
   const getProducts = async () => {
     let result = await fetch(`http://localhost:5000/products`, {
@@ -61,7 +76,7 @@ const Products = () => {
 
     }
 
-    const userName = JSON.parse(localStorage.getItem('user')).name;
+    userName = JSON.parse(localStorage.getItem('user')).name;
 
     let notResult = await fetch("http://localhost:5000/add-notification", {
       method: "post",
@@ -93,8 +108,22 @@ const Products = () => {
 
   }
 
-  const addToCart = (productId) => {
-    console.log(productId);
+  const addToCart = async (productData) => {
+
+    userName = JSON.parse(localStorage.getItem('user')).name;
+    let allData = {...productData, userName};
+
+    console.log(allData);
+
+    let result = await fetch("http://localhost:5000/add-toCart", {
+      method: "post",
+      body: JSON.stringify(allData),
+      headers: {
+        'Content-Type': 'application/json',
+        authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+      }
+    });
+    result = await result.json();
   }
 
   return (
@@ -116,13 +145,13 @@ const Products = () => {
                     <h3><TbCategory className='cardIcon' /> : <span className='value'>{value.category}</span></h3>
                     <h3><LuBuilding2 className='cardIcon' /> : <span className='value'>{value.company}</span></h3>
                     {
-                      userId === 'Admin' ?
+                      !isAdmin ?
                         <div className="ulBtns">
                           <button className='updateBtn'><Link to={"/update/" + value._id} ><i className="fa fa-edit"></i>Edit</Link></button>
                           <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}><i className="fa fa-trash-o"></i>Delete</button>
                         </div> :
                         <div className='addToCartBtn'>
-                          <button className='addToCart' onClick={() => addToCart(value._id)}>
+                          <button className='addToCart' onClick={() => addToCart(value)}>
                             Add To Cart
                           </button>
                         </div>

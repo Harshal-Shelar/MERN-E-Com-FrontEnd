@@ -13,6 +13,7 @@ import UpdateProduct from './Components/UpdateProduct/UpdateProduct.jsx';
 import Category from './Components/Categories/Category.jsx';
 import AddToCart from './Components/AddToCart/AddToCart.jsx';
 import { useEffect } from 'react';
+import Orders from './Components/Orders/Orders.jsx';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path='/profile' element={<Profile />} />
             <Route path='/categories' element={<Category />} />
             <Route path='/cart' element={<AddToCart />} />
+            <Route path='/orders' element={<Orders />} />
             <Route path='/update/:id' element={<UpdateProduct />} />
           </Route>
           <Route path='/signUp' element={<SignUp />} />

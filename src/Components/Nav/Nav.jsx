@@ -19,9 +19,9 @@ const Nav = () => {
 
   useEffect(() => {
     getNotificationCount();
-    if(localStorage.getItem('user')){
+    if (localStorage.getItem('user')) {
       userId = JSON.parse(localStorage.getItem('user')).name;
-    }else{
+    } else {
       navigate('/login')
     }
     matchAdmin();
@@ -62,12 +62,17 @@ const Nav = () => {
                 <li className='logoOnly'><Link to="/">MERN</Link></li>
                 <li><Link to="/">Product List</Link></li>
                 {isAdmin &&
+                <>
                   <li><Link to="/addProducts">Add Products</Link></li>
+                  <li><Link to="/orders">Orders</Link></li>
+                </>
                 }
                 <li><Link to="/categories">Categories</Link></li>
               </div>
               <div className='loginLogout'>
-                <li> <Link to="/cart"><i className="fa fa-cart-plus"></i><span className='notificationCount'>{notCount}</span></Link> </li>
+                {!isAdmin &&
+                  <li> <Link to="/cart"><i className="fa fa-cart-plus"></i><span className='notificationCount'>{notCount}</span></Link> </li>
+                }
                 <li><Link to="/profile"> <i className="fa fa-user-circle-o"></i> {JSON.parse(auth).name}</Link></li>
               </div>
             </ul>

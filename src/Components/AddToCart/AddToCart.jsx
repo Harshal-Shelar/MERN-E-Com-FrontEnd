@@ -10,45 +10,24 @@ const AddToCart = () => {
     const [totalPer, setTotalPer] = useState();
     const [paymentPopp, setPaymentPopp] = useState();
     const [paymentSuc, setPaymentSuc] = useState();
+    const [cartData, setCartData] = useState([]);
 
     const navigate = useNavigate();
+    var totalSum = 0;
 
     const quantity = [
         '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
     ];
-
     const deliveryCharge = 50;
 
-    const productData = [
-        {
-            name: 'Mens Jacket',
-            price: 700,
-            img: 'https://cdn.pixelspray.io/v2/black-bread-289bfa/woTKH5/wrkr/t.resize(h:1000,w:820)/data/Superdry/14092023/410393555006_1.jpg'
-        },
-        {
-            name: 'Lady Shoes',
-            price: 900,
-            img: 'https://fcity.in/images/products/11316335/wlcul_512.jpg'
-        },
-        {
-            name: 'BoAt Earphones',
-            price: 1200,
-            img: 'https://5.imimg.com/data5/SELLER/Default/2022/12/RC/UC/MG/102235488/boat-rockerz-235-v2-wireless-earphone.jpg'
-        },
-        {
-            name: 'Fastrack Sunglasses',
-            price: 700,
-            img: 'https://sslimages.shoppersstop.com/B8AC9759D45547D9AEF177F0DE13B7C8/img/FA6C9B092FDD4947A36FC6A6ACAAC5AE/203989496_9999_alt1_FA6C9B092FDD4947A36FC6A6ACAAC5AE.jpg'
-        }
-    ]
-
     useEffect(() => {
-        let percentage = 14;
-        let subTotal = productData.reduce((accumulator, object) => {
-            return accumulator + object.price;
-        }, 0);
-        setSum(subTotal);
-        findPercentage(subTotal, percentage);
+        let percentage = 5;
+        for (let index = 0; index < cartData.length; index++) {
+            totalSum += cartData[index].price;
+          }
+        setSum(totalSum);
+        findPercentage(totalSum, percentage);
+        getProductData();
     }, []);
 
     const findPercentage = (sum, percentage) => {
@@ -63,11 +42,22 @@ const AddToCart = () => {
         setPaymentSuc(true);
         setPaymentPopp(false);
 
-        setTimeout(()=>{
+        setTimeout(() => {
             setPaymentSuc(false);
             navigate('/');
-        },2000)
+        }, 2000)
     }
+
+    const getProductData = async () => {
+        let result = await fetch(`http://localhost:5000/cart-list`, {
+            headers: {
+                authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
+            }
+        });
+        result = await result.json();
+        setCartData(result);
+    }
+
     return (
         <>
             <div className="addToCartMain">
@@ -76,7 +66,7 @@ const AddToCart = () => {
                 <div className="cartPage">
                     <div className="productDetails">
                         {
-                            productData.map((value, index) => {
+                            cartData.map((value, index) => {
                                 return (
                                     <ul className='cartUl' key={index}>
                                         <li><img src={value.img} alt="" /></li>
@@ -105,8 +95,8 @@ const AddToCart = () => {
                     </div>
                     <div className="productBill">
                         <h3><b>Sub Total </b><span>{sum} /-</span></h3>
-                        <h3><b>Quantity </b><span>{productData.length}</span></h3>
-                        <h3><b>Tax </b><span>14%</span></h3>
+                        <h3><b>Quantity </b><span>{cartData.length}</span></h3>
+                        <h3><b>Tax </b><span>5%</span></h3>
                         <h3><b>Delivery Charges </b><span>{deliveryCharge} /-</span></h3>
 
                         <h2><b>Total :- </b>{sum + deliveryCharge + totalPer}/-</h2>
