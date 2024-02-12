@@ -31,9 +31,9 @@ const Products = () => {
   const matchAdmin = () => {
     let adminStr = 'Admin';
     if (adminStr === userId) {
-      setIsAdmin(false)
+      setIsAdmin(true)
     } else {
-      setIsAdmin(true);
+      setIsAdmin(false);
     }
   }
 
