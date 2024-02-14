@@ -1,26 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './AddToCart.scss';
 import { RxCross2 } from "react-icons/rx";
-import Popup from '../Popup';
-import { useNavigate } from 'react-router-dom';
+
 import trashIcon from '../../Assets/Images/trash.png';
+import PlaceOrder from '../PlaceOrder/PlaceOrder';
 
 const AddToCart = () => {
 
     const [sum, setSum] = useState();
     const [totalPer, setTotalPer] = useState();
-    const [paymentPopp, setPaymentPopp] = useState();
-    const [paymentSuc, setPaymentSuc] = useState();
     const [cartData, setCartData] = useState([]);
     const [deletePopup, setDeletePopup] = useState();
     const [idDelete, setIdDelete] = useState();
-    const [name, setName] = useState('');
-    const [phone, setPhone] = useState('');
-    const [address, setAddress] = useState('');
     const [totalAmount, setTotalAmount] = useState('');
-    const [error, setError] = useState(false);
+    const [paymentPopp, setPaymentPopp] = useState();
 
-    const navigate = useNavigate();
     var totalSum = 0;
 
     const quantity = [
@@ -51,7 +45,6 @@ const AddToCart = () => {
     }
 
     const getProductData = async () => {
-
         let result = await fetch(`http://localhost:5000/cart-list`, {
             headers: {
                 authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
@@ -60,39 +53,12 @@ const AddToCart = () => {
         result = await result.json();
         setCartData(result);
     }
-    const bookOrder = async () => {
-
-        if (!name || !phone || !address || !totalAmount) {
-            setError(true);
-        } else {
-            const userId = JSON.parse(localStorage.getItem('user'))._id;
-
-            let result = await fetch("http://localhost:5000/place-order", {
-                method: "post",
-                body: JSON.stringify({ name, phone, address, totalAmount, userId }),
-                headers: {
-                    'Content-Type': 'application/json',
-                    authorization: `bearer ${JSON.parse(localStorage.getItem('token'))}`
-                }
-            });
-            result = await result.json();
-            console.log(result);
-            if (result) {
-                setPaymentSuc(true);
-                setPaymentPopp(false);
-
-                setTimeout(() => {
-                    setPaymentSuc(false);
-                    navigate('/');
-                }, 2000)
-            }
-        }
-    }
 
     const getDeleteId = (deleteId) => {
         setIdDelete(deleteId);
         setDeletePopup(true);
     }
+
     const deleteProduct = async (idDelete) => {
         let result = await fetch(`http://localhost:5000/cartDelete/${idDelete}`, {
             method: "Delete",
@@ -108,7 +74,7 @@ const AddToCart = () => {
     }
 
     return (
-        <>
+        <>{
             <div className="addToCartMain">
                 <h1>Cart Page</h1>
                 <div className="cartPage">
@@ -154,34 +120,18 @@ const AddToCart = () => {
                     </div>
                 </div>
             </div>
+        }
+
             {paymentPopp &&
                 <div className="overlay">
                     <div className="popup">
                         <div className="content">
-                            <div className="paymentForm">
-                                <label htmlFor="">Name</label>
-                                <input type="text" onChange={(e) => setName(e.target.value)} />
-                                <label htmlFor="">Phone</label>
-                                <input type="text" onChange={(e) => setPhone(e.target.value)} />
-                                <label htmlFor="">Address</label>
-                                <textarea onChange={(e) => setAddress(e.target.value)} id="" cols="30" rows="10"></textarea>
-
-                                <div className="paymentMode">
-                                    <span>Payment Mode :</span>
-                                    <span>Cash on Delivery</span>
-                                </div>
-                            </div>
-                            <div className="popupBtns">
-                                <button className='popupCan placeOrdeBtn' onClick={bookOrder}>Place Order</button>
-                            </div>
+                            <PlaceOrder totalAmount={totalAmount} />
                         </div>
                     </div >
                 </div >
             }
-            {
-                paymentSuc &&
-                <Popup img="deleted" title="Order Placed Successfully" />
-            }
+
             {
                 deletePopup &&
                 <div className="overlay">
