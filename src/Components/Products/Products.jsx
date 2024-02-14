@@ -24,7 +24,7 @@ const Products = () => {
 
   useEffect(() => {
     getProducts();
-    userId = JSON.parse(localStorage.getItem('user'))._id;
+    userId = JSON.parse(localStorage.getItem('user')).name;
     matchAdmin();
   }, []);
 
@@ -145,7 +145,7 @@ const Products = () => {
                     <h3><TbCategory className='cardIcon' /> : <span className='value'>{value.category}</span></h3>
                     <h3><LuBuilding2 className='cardIcon' /> : <span className='value'>{value.company}</span></h3>
                     {
-                      !isAdmin ?
+                      isAdmin ?
                         <div className="ulBtns">
                           <button className='updateBtn'><Link to={"/update/" + value._id} ><i className="fa fa-edit"></i>Edit</Link></button>
                           <button className='deleteBtn' onClick={() => getProductId(value._id, value.name)}><i className="fa fa-trash-o"></i>Delete</button>

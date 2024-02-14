@@ -71,7 +71,7 @@ const Nav = () => {
               </div>
               <div className='loginLogout'>
                 {!isAdmin &&
-                  <li> <Link to="/cart"><i className="fa fa-cart-plus"></i><span className='notificationCount'>{notCount}</span></Link> </li>
+                  <li> <Link to="/cart"><i className="fa fa-cart-plus"></i></Link> </li>
                 }
                 <li><Link to="/profile"> <i className="fa fa-user-circle-o"></i> {JSON.parse(auth).name}</Link></li>
               </div>
