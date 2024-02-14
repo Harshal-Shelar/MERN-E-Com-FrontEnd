@@ -62,10 +62,10 @@ const Nav = () => {
                 <li className='logoOnly'><Link to="/">MERN</Link></li>
                 <li><Link to="/">Product List</Link></li>
                 {isAdmin &&
-                <>
-                  <li><Link to="/addProducts">Add Products</Link></li>
-                  <li><Link to="/orders">Orders</Link></li>
-                </>
+                  <>
+                    <li><Link to="/addProducts">Add Products</Link></li>
+                    <li><Link to="/orders">Orders</Link></li>
+                  </>
                 }
                 <li><Link to="/categories">Categories</Link></li>
               </div>
@@ -92,9 +92,11 @@ const Nav = () => {
                 <div className="respHeaderData">
                   <ul className='respUl' onClick={() => setSidebar(false)}>
                     <li><Link to="/"> <i className='fa fa-server'></i> Product List</Link></li>
-                    <li><Link to="/addProducts"> <i className='fa fa-user-plus'></i> Add Product</Link></li>
+                    {isAdmin &&
+                      <li><Link to="/addProducts"> <i className='fa fa-user-plus'></i> Add Product</Link></li>
+                    }
                     <li><Link to="/categories"> <i className='fa fa-cubes'></i> Categories</Link></li>
-                    <li onClick={() => openNotification()}><i className='fa fa-bell-o'></i> {notCount} Notifications</li>
+                    <li><Link to="/cart"><i className='fa fa-cart-plus'></i> Cart</Link></li>
                     <li><Link to="/profile"> <i className='fa fa-user-circle-o'></i> {JSON.parse(auth).name}</Link></li>
                   </ul>
                 </div> :
